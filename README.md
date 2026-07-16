@@ -43,7 +43,7 @@ I'm a passionate developer with a diverse skill set spanning **software developm
 ```
 🛰️  QGIS          ████████████████░░ 90%
 🗺️  ArcGIS        ███████████████░░░ 85%
-📡 GNU Radio     ██████████░░░░░░░░ 70%
+📡 GNU Radio      ██████████░░░░░░░░ 70%
 🌍 Remote Sensing ███████████████░░░ 85%
 ```
 
@@ -91,19 +91,6 @@ Crafting beautiful, intuitive interfaces using Figma and modern web technologies
 ### 📊 **Data Engineering**
 Processing and optimizing large datasets with PostgreSQL, MySQL, and Python for analytics and business intelligence.
 
----
-
-## 📊 GitHub Analytics
-
-<div align="center">
-
-![Mr-Saransh's GitHub Stats](https://github-readme-stats.vercel.app/api?username=Mr-Saransh&theme=tokyonight&show_icons=true&hide_border=true&count_private=true)
-
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Mr-Saransh&theme=tokyonight&layout=compact&hide_border=true)
-
-</div>
-
----
 
 ## 🎨 My Development Philosophy
 
@@ -147,7 +134,7 @@ I'm always expanding my knowledge in:
 <div align="center">
 
 [![GitHub](https://img.shields.io/badge/GitHub-Mr--Saransh-181717?style=for-the-badge&logo=github)](https://github.com/Mr-Saransh)
-[![Email](https://img.shields.io/badge/Email-Get%20in%20Touch-EA4335?style=for-the-badge&logo=gmail)](mailto:your-email@example.com)
+[![Email](https://img.shields.io/badge/Email-Get%20in%20Touch-EA4335?style=for-the-badge&logo=gmail)](mailto:saranshagrahari1221@gmail.com)
 
 </div>
 
