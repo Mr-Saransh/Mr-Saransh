@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[![](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=D4AF37&center=true&vCenter=true&width=800&height=120&lines=Full+Stack+Developer+%7C+Python+%7C+JavaScript+%7C+C%2B%2B)](https://github.com/Mr-Saransh)
+[![](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=D4AF37&center=true&vCenter=true&width=900&height=120&lines=Full+Stack+Developer+%7C+Systems+Engineer+%7C+Data+Engineer)](https://github.com/Mr-Saransh)
 
 </div>
 
@@ -10,111 +10,97 @@
 
 ## 🎯 About Me
 
-I'm a passionate developer with a diverse skill set spanning **software development** and **data engineering**. I love solving real-world problems through code and creativity — building polished, production-ready solutions with a designer's eye. I specialize in full-stack systems and focus on performance, accessibility, and delightful micro-interactions.
+I'm a Senior Full‑Stack Developer focused on building production systems with clean architecture, robust APIs, and engaging front-ends. I deliver performant backends, responsive frontends, and scalable data systems with a designer's attention to detail.
 
-> Tip: For an interactive profile page with animations, open `index.html` in this repository.
-
----
-
-## 💻 Tech Stack
-
-### 🔧 Programming Languages
-
-[![Python](https://img.shields.io/badge/Python-90%25-%23D4AF37?style=flat-square&logo=python)](https://www.python.org) [![C++](https://img.shields.io/badge/C++-85%25-%23D4AF37?style=flat-square&logo=c%2B%2B)](https://isocpp.org) [![C](https://img.shields.io/badge/C-70%25-%23D4AF37?style=flat-square&logo=c)](https://en.wikipedia.org/wiki/C_(programming_language)) [![JavaScript](https://img.shields.io/badge/JavaScript-90%25-%23D4AF37?style=flat-square&logo=javascript)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) [![HTML5](https://img.shields.io/badge/HTML5-85%25-%23D4AF37?style=flat-square&logo=html5)](https://developer.mozilla.org/en-US/docs/Web/HTML)
-
-
-### 🗄️ Databases
-
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-90%25-%23D4AF37?style=flat-square&logo=postgresql)](https://www.postgresql.org) [![MySQL](https://img.shields.io/badge/MySQL-85%25-%23D4AF37?style=flat-square&logo=mysql)](https://www.mysql.com) [![SQLite](https://img.shields.io/badge/SQLite-80%25-%23D4AF37?style=flat-square&logo=sqlite)](https://www.sqlite.org)
-
-
-### 🚀 Tools & Frameworks
-
-[![React](https://img.shields.io/badge/React-Experienced-%23D4AF37?style=flat-square&logo=react)](https://reactjs.org) [![Node.js](https://img.shields.io/badge/Node.js-Experienced-%23D4AF37?style=flat-square&logo=node.js)](https://nodejs.org) [![Docker](https://img.shields.io/badge/Docker-Comfortable-%23D4AF37?style=flat-square&logo=docker)](https://www.docker.com)
-
+> Note: For the full animated experience (GPU-friendly visuals, animated hero, micro‑interactions), open `index.html` in this repo or view the site via GitHub Pages once enabled.
 
 ---
 
-## 🌟 Key Expertise
+## ✨ Interactive Hero (Preview)
+
+Below is a preview area that will display the animated hero and micro‑animations in the README. GIF/WebP files are referenced from the repository `assets/` directory so they'll render directly on GitHub once pushed.
+
+<p align="center">
+
+<!-- Hero preview: replace `assets/hero.gif` with the actual optimized GIF or WebP -->
+
+<img src="assets/hero.gif" alt="Animated hero preview" width="820" style="border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,0.6);" />
+
+</p>
+
+> If the animated preview is not visible in the repo view, open `index.html` for the full interactive site.
+
+---
+
+## 💻 Tech Stack — Gold & Black
+
+[![Python](https://img.shields.io/badge/Python-90%25-%23D4AF37?style=flat-square&logo=python)](https://www.python.org) [![JavaScript](https://img.shields.io/badge/JavaScript-90%25-%23D4AF37?style=flat-square&logo=javascript)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) [![React](https://img.shields.io/badge/React-Experienced-%23D4AF37?style=flat-square&logo=react)](https://reactjs.org) [![Postgres](https://img.shields.io/badge/PostgreSQL-90%25-%23D4AF37?style=flat-square&logo=postgresql)](https://www.postgresql.org)
+
+I emphasize Full‑Stack engineering first — backend, frontend, and data systems — with design and UX as a close second. GIS skills are available but intentionally de‑emphasized here to keep the profile focused on full‑stack capabilities.
+
+---
+
+## 🚀 Project Demos (Animated)
+
+Below are short animated previews (GIF/WebP) of highlighted projects. Replace the placeholder files in `assets/` with your optimized GIFs or WebP files for best results.
+
+<p align="center">
+
+<img src="assets/project-dashboard.gif" alt="Realtime Analytics Dashboard" width="280" style="margin:6px;border-radius:8px;box-shadow:0 12px 30px rgba(0,0,0,0.5);" />
+<img src="assets/project-api.gif" alt="Scalable API Platform" width="280" style="margin:6px;border-radius:8px;box-shadow:0 12px 30px rgba(0,0,0,0.5);" />
+<img src="assets/project-viz.gif" alt="Interactive Data Viz" width="280" style="margin:6px;border-radius:8px;box-shadow:0 12px 30px rgba(0,0,0,0.5);" />
+
+</p>
+
+---
+
+## ⚡ Skill meters (animated thumbnails)
+
+These are small looping previews that show animated skill meters. Add `assets/skill-backend.gif`, `assets/skill-frontend.gif`, and `assets/skill-data.gif` to render them.
+
+<p align="center">
+<img src="assets/skill-backend.gif" alt="Backend skill" width="220" style="margin:6px;border-radius:8px;" />
+<img src="assets/skill-frontend.gif" alt="Frontend skill" width="220" style="margin:6px;border-radius:8px;" />
+<img src="assets/skill-data.gif" alt="Data skill" width="220" style="margin:6px;border-radius:8px;" />
+</p>
+
+---
+
+## 📫 Connect
 
 <div align="center">
-
-| 🎯 Category | ✨ Specializations |
-|:-:|:-:|
-| **Backend Development** | Python, C++, Database Design, APIs |
-| **Frontend Development** | JavaScript, React/Vue, HTML, CSS, Responsive Design, Animations |
-| **Data Engineering** | PostgreSQL, MySQL, ETL, Data Pipelines |
-| **Design** | Figma UI/UX, Wireframing, Prototyping |
-| **DevOps & Version Control** | Git, GitHub Actions, CI/CD |
-
+[![GitHub](https://img.shields.io/badge/GitHub-Mr--Saransh-181717?style=for-the-badge&logo=github)](https://github.com/Mr-Saransh)
+[![Email](https://img.shields.io/badge/Email-Get%20in%20Touch-%23D4AF37?style=for-the-badge&logo=gmail)](mailto:saranshagrahari1221@gmail.com)
 </div>
 
 ---
 
-## 🏆 What I Do Best
+## 📌 Preview the Animated Site (Local)
 
-### 💡 Full-Stack Solutions
-Building end-to-end applications from database design to responsive frontend interfaces, ensuring scalability and performance with thoughtful UX and delightful interactions.
+1. Clone the repo:
 
-### 🎨 Thoughtful Design
-Crafting polished, accessible interfaces using Figma and modern web technologies that delight users and solve problems.
+   ```bash
+   git clone https://github.com/Mr-Saransh/Mr-Saransh
+   cd Mr-Saransh
+   ```
 
-### 📊 Data Engineering
-Processing and optimizing large datasets with PostgreSQL, MySQL, and Python for analytics and business intelligence.
+2. Start a lightweight server and open the interactive page:
 
----
-
-## 🚀 Featured Projects
-
-My repositories showcase work in:
-- 🌐 Full-stack web applications
-- 📡 Signal processing and remote sensing
-- 🎮 Interactive data visualization
-- 🤖 Machine learning and data science
-
-*Explore my repositories below to see detailed projects!*
+   ```bash
+   python3 -m http.server 8000
+   # then open http://localhost:8000/index.html
+   ```
 
 ---
 
-## 🎓 Continuous Learning
+## 🛠️ How I’ll add the media (next steps)
 
-I'm always expanding my knowledge in:
-- 🤖 Machine Learning & AI
-- ☁️ Cloud Technologies (AWS, GCP)
-- 🔐 Cybersecurity & Encryption
-- 📱 Mobile Development
-- 🌐 Web3 & Blockchain
+If you want, I will:
+- Generate/optimize the small GIF/WebP previews for hero, projects, and skill meters and upload them to `assets/`.
+- Or you can supply the GIF/WebP files and I'll commit them for you.
 
----
-
-## 📫 Let's Connect!
-
-<div align="center">
-
-[![GitHub](https://img.shields.io/badge/GitHub-Mr--Saransh-181717?style=for-the-badge&logo=github)](https://github.com/Mr-Saransh) [![Email](https://img.shields.io/badge/Email-Get%20in%20Touch-%23D4AF37?style=for-the-badge&logo=gmail)](mailto:saranshagrahari1221@gmail.com)
-
-</div>
+Tell me whether you want me to generate and commit the animated assets (I will create optimized GIFs/WebP and push them to `assets/`) or whether you will upload them. If you want me to generate them, reply **"Generate and commit GIFs/WebP to assets/"** and I will proceed.
 
 ---
 
-<div align="center">
-
-### ⭐ If you find my work interesting, consider giving my repositories a star! ⭐
-
-**Made with ❤️ by Saransh**
-
-</div>
-
----
-
-## 📈 GitHub Contribution Graph
-
-[![GitHub Contribution](https://github-readme-activity-graph.vercel.app/graph?username=Mr-Saransh&theme=github_dark&hide_border=true)](https://github.com/Mr-Saransh)
-
----
-
-<div align="center">
-
-*Last updated: 2026* | *"Stay curious, keep building, never stop learning"* 🚀
-
-</div>
+Made with ❤️ by Saransh — full‑stack, performance‑driven, design‑led.
