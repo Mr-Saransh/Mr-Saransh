@@ -13,32 +13,65 @@
       <div class="hero-inner">
         <h1 class="title">Saransh Gupta <span class="glow">— Full‑Stack Developer</span></h1>
         <p class="subtitle">Building scalable backends, polished frontends, and fast data systems ✨</p>
-        <div class="badges">
-          <img src="https://img.shields.io/badge/Python-%23D4AF37" alt="Python"/>
-          <img src="https://img.shields.io/badge/JavaScript-%23D4AF37" alt="JS"/>
-          <img src="https://img.shields.io/badge/PostgreSQL-%23D4AF37" alt="Postgres"/>
-          <img src="https://img.shields.io/badge/React-%23D4AF37" alt="React"/>
+
+        <div class="svg-badges" aria-hidden="true">
+          <!-- Inline SVG icons with simple animated stroke to replace shields -->
+          <svg class="badge" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Python">
+            <rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="2"/>
+            <text x="32" y="38" text-anchor="middle" font-family="Fira Code, monospace" font-size="18" fill="currentColor">Py</text>
+          </svg>
+
+          <svg class="badge" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="JavaScript">
+            <rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="2"/>
+            <text x="32" y="38" text-anchor="middle" font-family="Fira Code, monospace" font-size="18" fill="currentColor">JS</text>
+          </svg>
+
+          <svg class="badge" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Postgres">
+            <rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="2"/>
+            <text x="32" y="38" text-anchor="middle" font-family="Fira Code, monospace" font-size="14" fill="currentColor">PG</text>
+          </svg>
+
+          <svg class="badge" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="React">
+            <rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="2"/>
+            <text x="32" y="38" text-anchor="middle" font-family="Fira Code, monospace" font-size="14" fill="currentColor">R</text>
+          </svg>
         </div>
+
         <div class="cta-row">
           <a class="cta" href="#projects">View Projects 🚀</a>
           <a class="cta ghost" href="mailto:saranshagrahari1221@gmail.com">Get in touch ✉️</a>
         </div>
       </div>
+
       <div class="hero-visual" aria-hidden="true">
-        <svg class="hero-grid" viewBox="0 0 800 200" preserveAspectRatio="none">
+        <!-- Animated SVG hero (gold lines + rotating orb) -->
+        <svg class="hero-svg" viewBox="0 0 600 240" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="g" x1="0" x2="1">
-              <stop offset="0%" stop-color="#0b0b0b" />
-              <stop offset="100%" stop-color="#0b0b0b" />
-            </linearGradient>
+            <radialGradient id="orbGrad" cx="50%" cy="40%" r="50%">
+              <stop offset="0%" stop-color="#F8E5B1" />
+              <stop offset="60%" stop-color="#D4AF37" />
+              <stop offset="100%" stop-color="#A8791B" />
+            </radialGradient>
+            <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="8" result="blur" />
+              <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+            </filter>
           </defs>
-          <rect width="100%" height="100%" fill="url(#g)" />
-          <!-- subtle animated gold lines -->
-          <g class="lines">
-            <line x1="0" y1="160" x2="800" y2="60" stroke="#D4AF37" stroke-opacity="0.07" stroke-width="2" />
-            <line x1="0" y1="180" x2="800" y2="80" stroke="#D4AF37" stroke-opacity="0.05" stroke-width="1.5" />
+
+          <g class="lines" stroke="#D4AF37" stroke-opacity="0.08" stroke-width="2" fill="none">
+            <path d="M0,180 C150,120 450,120 600,60" class="line line-1" />
+            <path d="M0,200 C200,150 400,110 600,80" class="line line-2" stroke-opacity="0.05" />
           </g>
+
+          <g class="orb" transform="translate(480,70)">
+            <circle cx="0" cy="0" r="42" fill="url(#orbGrad)" filter="url(#glow)"></circle>
+            <circle class="orb-ring" cx="0" cy="0" r="62" fill="none" stroke="#D4AF37" stroke-opacity="0.12" stroke-width="2"/>
+          </g>
+
         </svg>
+
+        <!-- Lottie container for hero micro-animation -->
+        <div id="hero-lottie" class="lottie-container" aria-hidden="true"></div>
       </div>
     </header>
 
@@ -100,6 +133,9 @@
       <p>Made with <span class="heart">❤️</span> by Saransh — <a href="https://github.com/Mr-Saransh">GitHub</a></p>
     </footer>
   </main>
+
+  <!-- Lottie-web player (CDN) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.6/lottie.min.js" integrity="sha512-YOUR_INTEGRITY_HASH" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="/assets/script.js"></script>
 </body>
 </html>
