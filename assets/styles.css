@@ -1,0 +1,47 @@
+/* styles.css — gold & black theme, lightweight animations */
+:root{
+  --bg:#060606;
+  --surface:#0b0b0b;
+  --muted:#9aa3a8;
+  --gold:#D4AF37;
+  --accent:linear-gradient(90deg,var(--gold),#f5d88a);
+  --glass:rgba(255,255,255,0.03);
+  --radius:12px;
+}
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,-apple-system,"Helvetica Neue",Arial; background:radial-gradient(1200px 400px at 10% 10%, rgba(212,175,55,0.03), transparent),var(--bg);color:#e6e6e6;line-height:1.5}
+.site{max-width:1100px;margin:36px auto;padding:24px}
+.hero{display:flex;gap:28px;align-items:center;padding:36px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border-radius:16px;position:relative;overflow:hidden}
+.hero-inner{flex:1;z-index:2}
+.title{font-weight:800;font-size:clamp(24px,4vw,44px);margin:0}
+.title .glow{color:var(--gold);text-shadow:0 6px 20px rgba(212,175,55,0.12)}
+.subtitle{color:var(--muted);margin:8px 0 18px}
+.badges img{height:28px;margin-right:8px;filter:grayscale(0);opacity:0.95}
+.cta-row{margin-top:16px}
+.cta{display:inline-block;padding:10px 16px;border-radius:999px;background:var(--gold);color:#060606;font-weight:600;text-decoration:none;margin-right:10px;transition:transform .18s ease, box-shadow .18s;box-shadow:0 6px 20px rgba(212,175,55,0.08)}
+.cta.ghost{background:transparent;color:var(--gold);border:1px solid rgba(212,175,55,0.12)}
+.cta:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(212,175,55,0.12)}
+.hero-visual{position:absolute;right:-80px;top:0;height:100%;opacity:0.5;pointer-events:none}
+.hero-grid{width:900px;height:100%}
+
+.panel{margin-top:28px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);padding:22px;border-radius:12px}
+.panel-title{margin:0;font-size:20px}
+.lead{color:var(--muted);margin:8px 0 16px}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.skill-card{background:var(--glass);padding:14px;border-radius:10px;backdrop-filter:blur(4px);transition:transform .3s ease, box-shadow .3s ease}
+.skill-card.small{opacity:0.85}
+.skill-card h3{margin:0 0 6px}
+.meter{height:10px;background:rgba(255,255,255,0.03);border-radius:999px;overflow:hidden;margin-top:12px}
+.meter span{display:block;height:100%;width:0;background:var(--gold);border-radius:999px;transition:width 900ms cubic-bezier(.2,.9,.2,1)}
+
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.project{background:linear-gradient(180deg, rgba(255,255,255,0.015), transparent);padding:16px;border-radius:12px;transition:transform .18s ease,box-shadow .18s ease;cursor:pointer}
+.project:hover{transform:translateY(-6px);box-shadow:0 30px 60px rgba(0,0,0,0.6)}
+.tags{color:var(--muted);margin-top:10px;font-size:13px}
+.site-footer{text-align:center;margin-top:26px;color:var(--muted)}
+.heart{color:var(--gold)}
+
+@media (max-width:900px){.skills-grid{grid-template-columns:repeat(2,1fr)}.projects-grid{grid-template-columns:1fr}}
+
+@media (prefers-reduced-motion:reduce){*{animation:none;transition:none!important}}

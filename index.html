@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Saransh Gupta — Full‑Stack Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <main class="site">
+    <header class="hero">
+      <div class="hero-inner">
+        <h1 class="title">Saransh Gupta <span class="glow">— Full‑Stack Developer</span></h1>
+        <p class="subtitle">Building scalable backends, polished frontends, and fast data systems ✨</p>
+        <div class="badges">
+          <img src="https://img.shields.io/badge/Python-%23D4AF37" alt="Python"/>
+          <img src="https://img.shields.io/badge/JavaScript-%23D4AF37" alt="JS"/>
+          <img src="https://img.shields.io/badge/PostgreSQL-%23D4AF37" alt="Postgres"/>
+          <img src="https://img.shields.io/badge/React-%23D4AF37" alt="React"/>
+        </div>
+        <div class="cta-row">
+          <a class="cta" href="#projects">View Projects 🚀</a>
+          <a class="cta ghost" href="mailto:saranshagrahari1221@gmail.com">Get in touch ✉️</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg class="hero-grid" viewBox="0 0 800 200" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1">
+              <stop offset="0%" stop-color="#0b0b0b" />
+              <stop offset="100%" stop-color="#0b0b0b" />
+            </linearGradient>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#g)" />
+          <!-- subtle animated gold lines -->
+          <g class="lines">
+            <line x1="0" y1="160" x2="800" y2="60" stroke="#D4AF37" stroke-opacity="0.07" stroke-width="2" />
+            <line x1="0" y1="180" x2="800" y2="80" stroke="#D4AF37" stroke-opacity="0.05" stroke-width="1.5" />
+          </g>
+        </svg>
+      </div>
+    </header>
+
+    <section id="skills" class="panel">
+      <h2 class="panel-title">Core Skills</h2>
+      <p class="lead">Engineering across stack: backend systems, frontend interfaces, and data pipelines.</p>
+      <div class="skills-grid">
+        <div class="skill-card" data-delay="0">
+          <h3>Backend</h3>
+          <p>Python, C++, APIs, Database Design</p>
+          <div class="meter"><span style="--w:90%"></span></div>
+        </div>
+
+        <div class="skill-card" data-delay="100">
+          <h3>Frontend</h3>
+          <p>JS, React/Vue, HTML, CSS, Animations</p>
+          <div class="meter"><span style="--w:92%"></span></div>
+        </div>
+
+        <div class="skill-card" data-delay="200">
+          <h3>Data & DevOps</h3>
+          <p>Postgres, ETL, CI/CD, Docker</p>
+          <div class="meter"><span style="--w:88%"></span></div>
+        </div>
+
+        <div class="skill-card small" data-delay="300">
+          <h3>GIS (incidental)</h3>
+          <p>QGIS, ArcGIS — available on request</p>
+          <div class="meter"><span style="--w:75%"></span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="panel">
+      <h2 class="panel-title">Featured Projects</h2>
+      <p class="lead">A curated selection of work that demonstrates full-stack excellence.</p>
+      <div class="projects-grid">
+        <article class="project" tabindex="0" data-delay="0">
+          <h3>Realtime Analytics Dashboard</h3>
+          <p>Full-stack app: streaming ETL → Postgres → React visualizations. Focus on reliability and UX.</p>
+          <div class="tags">Python • React • Postgres</div>
+        </article>
+
+        <article class="project" tabindex="0" data-delay="100">
+          <h3>Scalable API Platform</h3>
+          <p>High-performance microservices with clear versioning and observability.</p>
+          <div class="tags">Go • Docker • CI/CD</div>
+        </article>
+
+        <article class="project" tabindex="0" data-delay="200">
+          <h3>Interactive Data Viz</h3>
+          <p>Fast, accessible visual components for large datasets and responsive UIs.</p>
+          <div class="tags">D3 • React</div>
+        </article>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>Made with <span class="heart">❤️</span> by Saransh — <a href="https://github.com/Mr-Saransh">GitHub</a></p>
+    </footer>
+  </main>
+  <script src="/assets/script.js"></script>
+</body>
+</html>
