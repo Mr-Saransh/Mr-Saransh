@@ -1,4 +1,4 @@
-# 👋 Hey there! I'm Saransh
+# 👋 Hey there! I'm Saransh Gupta
 
 <div align="center">
   
