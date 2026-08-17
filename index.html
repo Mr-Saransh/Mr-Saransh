@@ -4,138 +4,244 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Saransh Gupta — Full‑Stack Developer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/styles.css">
+  <meta name="description" content="Saransh Gupta — Full-Stack Developer. Portfolio: backend, frontend, data engineering.">
+
+  <style>
+    :root{
+      --bg:#030305;
+      --card:#0b0b0b;
+      --muted:#9aa3a8;
+      --gold:#D4AF37;
+      --gold-2:#f5d88a;
+      --glass:rgba(255,255,255,0.03);
+      --radius:14px;
+      --max-width:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;background:radial-gradient(700px 300px at 8% 10%, rgba(212,175,55,0.035), transparent),var(--bg);color:#eaeaea;-webkit-font-smoothing:antialiased}
+
+    .wrap{max-width:var(--max-width);margin:28px auto;padding:20px}
+
+    /* HERO */
+    .hero{position:relative;display:flex;align-items:center;gap:28px;padding:36px;border-radius:18px;overflow:hidden;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.006));box-shadow:0 20px 60px rgba(0,0,0,0.65)}
+    .hero-left{flex:1;z-index:5}
+    .title{font-weight:800;font-size:clamp(26px,5vw,56px);margin:0 0 8px;line-height:1}
+    .title .accent{color:var(--gold);text-shadow:0 10px 40px rgba(212,175,55,0.14)}
+    .subtitle{color:var(--muted);margin:6px 0 18px;font-size:15px}
+
+    .badges{display:flex;gap:10px;margin-bottom:18px}
+    .badge{display:inline-grid;place-items:center;width:56px;height:56px;border-radius:12px;background:linear-gradient(180deg,rgba(212,175,55,0.06),rgba(255,255,255,0.01));color:var(--gold);font-weight:700;box-shadow:0 10px 36px rgba(212,175,55,0.04);transform:translateY(0);transition:transform .32s ease}
+    .badge:hover{transform:translateY(-10px) rotate(-6deg)}
+
+    .cta{display:inline-block;padding:12px 18px;border-radius:999px;background:var(--gold);color:#0b0b0b;text-decoration:none;font-weight:700;margin-right:10px;box-shadow:0 20px 44px rgba(212,175,55,0.12);transition:transform .16s ease}
+    .cta.secondary{background:transparent;color:var(--gold);border:1px solid rgba(212,175,55,0.12)}
+
+    /* hero right visual area */
+    .hero-right{width:520px;height:320px;position:relative;flex:0 0 520px;z-index:3}
+    .canvas-layer{position:absolute;inset:0;border-radius:14px;overflow:hidden}
+    canvas{width:100%;height:100%;display:block}
+
+    /* central card over canvas */
+    .viz-card{position:absolute;right:20px;top:24px;width:320px;padding:18px;border-radius:14px;background:linear-gradient(180deg,rgba(12,12,12,0.6),rgba(12,12,12,0.35));backdrop-filter:blur(6px);box-shadow:0 24px 60px rgba(0,0,0,0.65);border:1px solid rgba(212,175,55,0.06)}
+    .viz-card h3{margin:0 0 8px;font-size:18px}
+    .viz-orb{width:84px;height:84px;border-radius:50%;background:radial-gradient(circle at 35% 30%,var(--gold-2),var(--gold));box-shadow:0 20px 60px rgba(212,175,55,0.12);display:inline-block;margin-right:12px;vertical-align:middle}
+    .viz-meta{display:inline-block;vertical-align:middle;color:var(--muted);font-size:13px}
+
+    /* sections */
+    .panel{margin-top:22px;padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);}
+    .panel-title{margin:0 0 8px;font-size:18px}
+    .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+
+    .skill{padding:12px;border-radius:10px;background:rgba(255,255,255,0.02)}
+    .skill h4{margin:0 0 6px}
+    .meter{height:10px;background:rgba(255,255,255,0.03);border-radius:999px;overflow:hidden}
+    .meter > span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold-2));border-radius:999px;transition:width 900ms cubic-bezier(.2,.9,.2,1)}
+
+    /* project cards */
+    .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:10px}
+    .project{padding:12px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);transition:transform .28s ease,box-shadow .28s}
+    .project:hover{transform:translateY(-8px);box-shadow:0 40px 80px rgba(0,0,0,0.6)}
+
+    footer{margin-top:26px;text-align:center;color:var(--muted)}
+
+    /* responsive */
+    @media (max-width:1000px){.hero{flex-direction:column}.hero-right{width:100%;height:260px;flex-basis:auto}}
+    @media (max-width:700px){.skills{grid-template-columns:repeat(2,1fr)}.projects{grid-template-columns:1fr}} 
+
+    /* prefers reduced motion */
+    @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+  </style>
 </head>
 <body>
-  <main class="site">
+  <div class="wrap">
     <header class="hero">
-      <div class="hero-inner">
-        <h1 class="title">Saransh Gupta <span class="glow">— Full‑Stack Developer</span></h1>
-        <p class="subtitle">Building scalable backends, polished frontends, and fast data systems ✨</p>
+      <div class="hero-left">
+        <h1 class="title">Saransh Gupta <span class="accent">— Full‑Stack Developer</span></h1>
+        <p class="subtitle">Designing and building high‑performance backends, responsive frontends, and scalable data systems.</p>
 
-        <div class="svg-badges" aria-hidden="true">
-          <!-- Inline SVG icons with simple animated stroke to replace shields -->
-          <svg class="badge" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Python">
-            <rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="2"/>
-            <text x="32" y="38" text-anchor="middle" font-family="Fira Code, monospace" font-size="18" fill="currentColor">Py</text>
-          </svg>
-
-          <svg class="badge" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="JavaScript">
-            <rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="2"/>
-            <text x="32" y="38" text-anchor="middle" font-family="Fira Code, monospace" font-size="18" fill="currentColor">JS</text>
-          </svg>
-
-          <svg class="badge" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Postgres">
-            <rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="2"/>
-            <text x="32" y="38" text-anchor="middle" font-family="Fira Code, monospace" font-size="14" fill="currentColor">PG</text>
-          </svg>
-
-          <svg class="badge" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="React">
-            <rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="2"/>
-            <text x="32" y="38" text-anchor="middle" font-family="Fira Code, monospace" font-size="14" fill="currentColor">R</text>
-          </svg>
+        <div class="badges" aria-hidden="true">
+          <div class="badge" title="Python">Py</div>
+          <div class="badge" title="JavaScript">JS</div>
+          <div class="badge" title="Postgres">PG</div>
+          <div class="badge" title="React">R</div>
         </div>
 
-        <div class="cta-row">
+        <div>
           <a class="cta" href="#projects">View Projects 🚀</a>
-          <a class="cta ghost" href="mailto:saranshagrahari1221@gmail.com">Get in touch ✉️</a>
+          <a class="cta secondary" href="mailto:saranshagrahari1221@gmail.com">Get in touch ✉️</a>
         </div>
       </div>
 
-      <div class="hero-visual" aria-hidden="true">
-        <!-- Animated SVG hero (gold lines + rotating orb) -->
-        <svg class="hero-svg" viewBox="0 0 600 240" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <radialGradient id="orbGrad" cx="50%" cy="40%" r="50%">
-              <stop offset="0%" stop-color="#F8E5B1" />
-              <stop offset="60%" stop-color="#D4AF37" />
-              <stop offset="100%" stop-color="#A8791B" />
-            </radialGradient>
-            <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur stdDeviation="8" result="blur" />
-              <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-            </filter>
-          </defs>
+      <div class="hero-right" aria-hidden="true">
+        <div class="canvas-layer"><canvas id="particles"></canvas></div>
 
-          <g class="lines" stroke="#D4AF37" stroke-opacity="0.08" stroke-width="2" fill="none">
-            <path d="M0,180 C150,120 450,120 600,60" class="line line-1" />
-            <path d="M0,200 C200,150 400,110 600,80" class="line line-2" stroke-opacity="0.05" />
-          </g>
+        <div class="viz-card" role="img" aria-label="Animated orb visualization">
+          <div style="display:flex;align-items:center">
+            <div class="viz-orb" id="viz-orb"></div>
+            <div class="viz-meta">
+              <div style="font-weight:700">Full‑Stack Systems</div>
+              <div style="margin-top:6px;color:var(--muted);font-size:13px">APIs • Databases • Real-time</div>
+            </div>
+          </div>
+        </div>
 
-          <g class="orb" transform="translate(480,70)">
-            <circle cx="0" cy="0" r="42" fill="url(#orbGrad)" filter="url(#glow)"></circle>
-            <circle class="orb-ring" cx="0" cy="0" r="62" fill="none" stroke="#D4AF37" stroke-opacity="0.12" stroke-width="2"/>
-          </g>
-
-        </svg>
-
-        <!-- Lottie container for hero micro-animation -->
-        <div id="hero-lottie" class="lottie-container" aria-hidden="true"></div>
       </div>
     </header>
 
-    <section id="skills" class="panel">
+    <section class="panel">
       <h2 class="panel-title">Core Skills</h2>
-      <p class="lead">Engineering across stack: backend systems, frontend interfaces, and data pipelines.</p>
-      <div class="skills-grid">
-        <div class="skill-card" data-delay="0">
-          <h3>Backend</h3>
-          <p>Python, C++, APIs, Database Design</p>
-          <div class="meter"><span style="--w:90%"></span></div>
+      <div class="skills">
+        <div class="skill">
+          <h4>Backend</h4>
+          <div>Python, C++, APIs, Database Design</div>
+          <div class="meter" style="margin-top:10px"><span data-w="90%"></span></div>
         </div>
-
-        <div class="skill-card" data-delay="100">
-          <h3>Frontend</h3>
-          <p>JS, React/Vue, HTML, CSS, Animations</p>
-          <div class="meter"><span style="--w:92%"></span></div>
+        <div class="skill">
+          <h4>Frontend</h4>
+          <div>JavaScript, React, HTML, CSS, Animations</div>
+          <div class="meter" style="margin-top:10px"><span data-w="92%"></span></div>
         </div>
-
-        <div class="skill-card" data-delay="200">
-          <h3>Data & DevOps</h3>
-          <p>Postgres, ETL, CI/CD, Docker</p>
-          <div class="meter"><span style="--w:88%"></span></div>
-        </div>
-
-        <div class="skill-card small" data-delay="300">
-          <h3>GIS (incidental)</h3>
-          <p>QGIS, ArcGIS — available on request</p>
-          <div class="meter"><span style="--w:75%"></span></div>
+        <div class="skill">
+          <h4>Data & DevOps</h4>
+          <div>Postgres, ETL, Docker, CI/CD</div>
+          <div class="meter" style="margin-top:10px"><span data-w="88%"></span></div>
         </div>
       </div>
     </section>
 
-    <section id="projects" class="panel">
+    <section class="panel">
       <h2 class="panel-title">Featured Projects</h2>
-      <p class="lead">A curated selection of work that demonstrates full-stack excellence.</p>
-      <div class="projects-grid">
-        <article class="project" tabindex="0" data-delay="0">
-          <h3>Realtime Analytics Dashboard</h3>
-          <p>Full-stack app: streaming ETL → Postgres → React visualizations. Focus on reliability and UX.</p>
-          <div class="tags">Python • React • Postgres</div>
-        </article>
-
-        <article class="project" tabindex="0" data-delay="100">
-          <h3>Scalable API Platform</h3>
-          <p>High-performance microservices with clear versioning and observability.</p>
-          <div class="tags">Go • Docker • CI/CD</div>
-        </article>
-
-        <article class="project" tabindex="0" data-delay="200">
-          <h3>Interactive Data Viz</h3>
-          <p>Fast, accessible visual components for large datasets and responsive UIs.</p>
-          <div class="tags">D3 • React</div>
-        </article>
+      <div class="projects">
+        <div class="project">
+          <strong>Realtime Analytics Dashboard</strong>
+          <div style="color:var(--muted);margin-top:8px">Streaming ETL → Postgres → React visualizations. Focus on reliability and UX.</div>
+        </div>
+        <div class="project">
+          <strong>Scalable API Platform</strong>
+          <div style="color:var(--muted);margin-top:8px">Microservices, observability, and production-grade CI/CD.</div>
+        </div>
+        <div class="project">
+          <strong>Interactive Data Viz</strong>
+          <div style="color:var(--muted);margin-top:8px">High-performance visual components for large datasets.</div>
+        </div>
       </div>
     </section>
 
-    <footer class="site-footer">
-      <p>Made with <span class="heart">❤️</span> by Saransh — <a href="https://github.com/Mr-Saransh">GitHub</a></p>
+    <footer>
+      Made with <span style="color:var(--gold);">❤</span> by Saransh — <a href="https://github.com/Mr-Saransh" style="color:var(--gold);text-decoration:none">GitHub</a>
     </footer>
-  </main>
+  </div>
 
-  <!-- Lottie-web player (CDN) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.6/lottie.min.js" integrity="sha512-YOUR_INTEGRITY_HASH" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="/assets/script.js"></script>
+  <script>
+    (function(){
+      var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Particle background (Canvas) - lightweight, GPU-friendly
+      var canvas = document.getElementById('particles');
+      var ctx = canvas.getContext('2d');
+      var DPR = Math.max(1, window.devicePixelRatio || 1);
+      var w, h, particles = [];
+
+      function resize(){
+        w = canvas.width = canvas.clientWidth * DPR;
+        h = canvas.height = canvas.clientHeight * DPR;
+        ctx.setTransform(DPR,0,0,DPR,0,0);
+      }
+
+      function rand(min,max){return Math.random()*(max-min)+min}
+
+      function createParticles(n){
+        particles = [];
+        for(var i=0;i<n;i++){
+          particles.push({x:rand(0,w), y:rand(0,h), r:rand(0.6,2.4), vx:rand(-0.15,0.15), vy:rand(-0.05,0.05), alpha:rand(0.06,0.22)});
+        }
+      }
+
+      function draw(){
+        ctx.clearRect(0,0,canvas.clientWidth,canvas.clientHeight);
+        // subtle vignette
+        for(var i=0;i<particles.length;i++){
+          var p = particles[i];
+          p.x += p.vx; p.y += p.vy;
+          if(p.x< -10) p.x = canvas.clientWidth + 10; if(p.x>canvas.clientWidth+10) p.x = -10;
+          if(p.y< -10) p.y = canvas.clientHeight +10; if(p.y>canvas.clientHeight+10) p.y = -10;
+
+          ctx.beginPath();
+          var g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r*10);
+          g.addColorStop(0, 'rgba(212,175,55,' + (p.alpha*1.0) + ')');
+          g.addColorStop(1, 'rgba(212,175,55,0)');
+          ctx.fillStyle = g;
+          ctx.arc(p.x, p.y, p.r*6, 0, Math.PI*2);
+          ctx.fill();
+        }
+        // lines between nearby particles
+        ctx.lineWidth=0.6; ctx.strokeStyle='rgba(212,175,55,0.06)';
+        for(var i=0;i<particles.length;i++){
+          for(var j=i+1;j<particles.length;j++){
+            var a=particles[i], b=particles[j];
+            var dx=a.x-b.x, dy=a.y-b.y; var dist = Math.sqrt(dx*dx+dy*dy);
+            if(dist<80){ ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke(); }
+          }
+        }
+      }
+
+      var animId;
+      function loop(){ draw(); animId = requestAnimationFrame(loop); }
+
+      function startParticles(){
+        if(prefersReduced) return; // respect reduced motion
+        resize(); createParticles(Math.max(24, Math.floor((canvas.clientWidth*canvas.clientHeight)/9000)));
+        cancelAnimationFrame(animId); loop();
+      }
+
+      window.addEventListener('resize', function(){ clearTimeout(window._resizeTimer); window._resizeTimer = setTimeout(function(){ resize(); createParticles(particles.length); },120); });
+
+      // Viz orb breathing
+      var orb = document.getElementById('viz-orb');
+      if(orb && !prefersReduced){
+        var t=0; function breathe(){ t+=0.02; var s=1+Math.sin(t)/32; orb.style.transform = 'scale('+s+')'; requestAnimationFrame(breathe);} breathe();
+      }
+
+      // reveal meters
+      document.addEventListener('DOMContentLoaded', function(){
+        // setup canvas size accurately and start
+        try{ startParticles(); } catch(e){}
+        // animate meters
+        document.querySelectorAll('.meter > span').forEach(function(el,i){ var w = el.getAttribute('data-w')||'80%'; setTimeout(function(){ el.style.width = w; }, 160 + i*140); });
+
+        // small entrance animations
+        document.querySelectorAll('.project, .skill').forEach(function(el,i){ el.style.opacity=0; el.style.transform='translateY(10px)'; setTimeout(function(){ el.style.transition='transform .42s cubic-bezier(.2,.9,.2,1),opacity .42s'; el.style.opacity=1; el.style.transform='none'; }, 200 + i*80); });
+      });
+
+      // simple parallax for hero-right on mousemove
+      (function(){
+        var hero = document.querySelector('.hero'); var right = document.querySelector('.hero-right'); if(!hero||!right||prefersReduced) return;
+        hero.addEventListener('mousemove', function(e){ var r = hero.getBoundingClientRect(); var x = (e.clientX - r.left)/r.width - 0.5; var y = (e.clientY - r.top)/r.height - 0.5; right.style.transform = 'translate3d(' + (x * -12) + 'px,' + (y * -6) + 'px,0)'; });
+        hero.addEventListener('mouseleave', function(){ right.style.transform = ''; });
+      })();
+
+    })();
+  </script>
 </body>
 </html>
