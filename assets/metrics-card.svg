@@ -1,66 +1,152 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 160" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 220" width="880" height="220">
   <defs>
-    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#0f0f15"/>
-      <stop offset="100%" stop-color="#07070a"/>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#030305"/>
+      <stop offset="50%" stop-color="#08080e"/>
+      <stop offset="100%" stop-color="#030305"/>
     </linearGradient>
-
-    <linearGradient id="metricGold" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FFF2A1"/>
-      <stop offset="40%" stop-color="#D4AF37"/>
-      <stop offset="100%" stop-color="#996515"/>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#AA771C"/>
+      <stop offset="50%" stop-color="#FFDF73"/>
+      <stop offset="100%" stop-color="#D4AF37"/>
     </linearGradient>
-
-    <filter id="glowMetric" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#4ADE80"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
+    <filter id="glow2">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      @keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
+      @keyframes count1{0%{opacity:0;transform:translateY(8px)}20%{opacity:1;transform:translateY(0)}80%{opacity:1}100%{opacity:1}}
+      @keyframes barGrow1{0%{width:0}100%{width:170px}}
+      @keyframes barGrow2{0%{width:0}100%{width:140px}}
+      @keyframes barGrow3{0%{width:0}100%{width:200px}}
+      @keyframes barGrow4{0%{width:0}100%{width:160px}}
+      @keyframes shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(200%)}}
+      .metricLabel{font-family:'Courier New',monospace;font-size:10px;font-weight:700;fill:#9CA3AF;letter-spacing:1.2px}
+      .metricVal{font-family:'Segoe UI',system-ui,sans-serif;font-weight:900;fill:#FFDF73;filter:url(#glow)}
+      .metricDesc{font-family:'Segoe UI',system-ui,sans-serif;font-size:11px;fill:#D4D4D4;font-weight:500}
+      .cardBg{fill:#0a0a14;stroke:#D4AF37;stroke-width:.8;stroke-opacity:.3;rx:10}
+      .pulseDot{animation:pulse 2s ease-in-out infinite}
+    </style>
   </defs>
 
-  <!-- Panel 1: Academic Standing Rank 1st Sem II & IV -->
-  <g transform="translate(10, 10)">
-    <rect width="232" height="140" rx="12" fill="url(#cardGrad)" stroke="#D4AF37" stroke-width="1" stroke-opacity="0.3"/>
-    <circle cx="28" cy="30" r="14" fill="#181822" stroke="#D4AF37" stroke-width="0.8"/>
-    <text x="28" y="35" text-anchor="middle" font-size="14">⭐</text>
-    <text x="52" y="34" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" fill="#D4AF37">ACADEMICS</text>
-    <text x="20" y="72" font-family="'Space Grotesk', sans-serif" font-size="20" font-weight="800" fill="url(#metricGold)">Rank 1st Topper</text>
-    <text x="20" y="92" font-family="'Inter', sans-serif" font-size="11" fill="#9CA3AF">Sem II &amp; Sem IV (Ongoing 5th)</text>
-    <text x="20" y="116" font-family="'Inter', sans-serif" font-size="11.5" font-weight="600" fill="#E5E7EB">MERI CET • MDU University</text>
+  <!-- BG -->
+  <rect width="880" height="220" rx="14" fill="url(#bg)" stroke="#D4AF37" stroke-opacity=".2" stroke-width="1"/>
+
+  <!-- Grid -->
+  <g opacity=".04">
+    <line x1="0" y1="55" x2="880" y2="55" stroke="#D4AF37"/>
+    <line x1="0" y1="110" x2="880" y2="110" stroke="#D4AF37"/>
+    <line x1="0" y1="165" x2="880" y2="165" stroke="#D4AF37"/>
+    <line x1="220" y1="0" x2="220" y2="220" stroke="#D4AF37"/>
+    <line x1="440" y1="0" x2="440" y2="220" stroke="#D4AF37"/>
+    <line x1="660" y1="0" x2="660" y2="220" stroke="#D4AF37"/>
   </g>
 
-  <!-- Panel 2: Featured Full Stack Projects -->
-  <g transform="translate(258, 10)">
-    <rect width="232" height="140" rx="12" fill="url(#cardGrad)" stroke="#D4AF37" stroke-width="1" stroke-opacity="0.3"/>
-    <circle cx="28" cy="30" r="14" fill="#181822" stroke="#D4AF37" stroke-width="0.8"/>
-    <text x="28" y="35" text-anchor="middle" font-size="14">🚀</text>
-    <text x="52" y="34" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" fill="#D4AF37">PORTFOLIO</text>
-    <text x="20" y="72" font-family="'Space Grotesk', sans-serif" font-size="20" font-weight="800" fill="url(#metricGold)">5+ Scaled Apps</text>
-    <text x="20" y="92" font-family="'Inter', sans-serif" font-size="11" fill="#9CA3AF">ERP, Real-time &amp; AI Tools</text>
-    <text x="20" y="116" font-family="'Inter', sans-serif" font-size="11.5" font-weight="600" fill="#E5E7EB">Apni Estate, ACTIFY, COACT</text>
+  <!-- Corner brackets -->
+  <g stroke="url(#gold)" stroke-width="1.5" fill="none" opacity=".6">
+    <path d="M 10 24 L 10 10 L 24 10"/>
+    <path d="M 870 24 L 870 10 L 856 10"/>
+    <path d="M 10 196 L 10 210 L 24 210"/>
+    <path d="M 870 196 L 870 210 L 856 210"/>
   </g>
 
-  <!-- Panel 3: Awards & Recognition -->
-  <g transform="translate(506, 10)">
-    <rect width="232" height="140" rx="12" fill="url(#cardGrad)" stroke="#D4AF37" stroke-width="1" stroke-opacity="0.3"/>
-    <circle cx="28" cy="30" r="14" fill="#181822" stroke="#D4AF37" stroke-width="0.8"/>
-    <text x="28" y="35" text-anchor="middle" font-size="14">🏆</text>
-    <text x="52" y="34" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" fill="#D4AF37">RECOGNITION</text>
-    <text x="20" y="72" font-family="'Space Grotesk', sans-serif" font-size="20" font-weight="800" fill="url(#metricGold)">1st Prize &amp; Innovator</text>
-    <text x="20" y="92" font-family="'Inter', sans-serif" font-size="11" fill="#9CA3AF">MERI-CET &amp; Startup Carnival</text>
-    <text x="20" y="116" font-family="'Inter', sans-serif" font-size="11.5" font-weight="600" fill="#E5E7EB">State &amp; University Wins</text>
+  <!-- Card 1: Academic Rank -->
+  <g transform="translate(22,28)">
+    <rect width="198" height="164" class="cardBg"/>
+    <!-- Accent bar top -->
+    <rect x="1" y="1" width="196" height="3" rx="2" fill="url(#gold)" opacity=".6"/>
+    <text x="18" y="32" class="metricLabel">ACADEMIC STANDING</text>
+    <text x="18" y="72" class="metricVal" font-size="34">RANK 1ST</text>
+    <text x="18" y="95" class="metricDesc">Semester II &amp; IV — CSE Dept</text>
+    <text x="18" y="115" font-family="'Courier New',monospace" font-size="10" fill="#6B7280" font-weight="500">MERI-CET (MDU) • 5th Sem</text>
+    <!-- Bar -->
+    <rect x="18" y="132" width="162" height="4" rx="2" fill="#1a1a26"/>
+    <rect x="18" y="132" height="4" rx="2" fill="url(#gold)" opacity=".8">
+      <animate attributeName="width" from="0" to="162" dur="2s" fill="freeze"/>
+    </rect>
+    <circle cx="172" cy="134" r="3" fill="#4ADE80" class="pulseDot" filter="url(#glow)"/>
+    <text x="18" y="156" font-family="'Courier New',monospace" font-size="9" fill="#4ADE80" font-weight="700">■ DEPARTMENT TOPPER</text>
   </g>
 
-  <!-- Panel 4: Architecture Core -->
-  <g transform="translate(754, 10)">
-    <rect width="236" height="140" rx="12" fill="url(#cardGrad)" stroke="#D4AF37" stroke-width="1" stroke-opacity="0.3"/>
-    <circle cx="28" cy="30" r="14" fill="#181822" stroke="#D4AF37" stroke-width="0.8"/>
-    <text x="28" y="35" text-anchor="middle" font-size="14">⚡</text>
-    <text x="52" y="34" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" fill="#D4AF37">STACK CORE</text>
-    <text x="20" y="72" font-family="'Space Grotesk', sans-serif" font-size="20" font-weight="800" fill="url(#metricGold)">Full Stack Next.js</text>
-    <text x="20" y="92" font-family="'Inter', sans-serif" font-size="11" fill="#9CA3AF">React • PostgreSQL • Prisma</text>
-    <text x="20" y="116" font-family="'Inter', sans-serif" font-size="11.5" font-weight="600" fill="#E5E7EB">WebSockets &amp; Python APIs</text>
+  <!-- Card 2: Production Apps -->
+  <g transform="translate(232,28)">
+    <rect width="198" height="164" class="cardBg"/>
+    <rect x="1" y="1" width="196" height="3" rx="2" fill="url(#greenGrad)" opacity=".6"/>
+    <text x="18" y="32" class="metricLabel">PRODUCTION SYSTEMS</text>
+    <text x="18" y="72" class="metricVal" font-size="34">5+</text>
+    <text x="58" y="72" class="metricVal" font-size="16"> SHIPPED</text>
+    <text x="18" y="95" class="metricDesc">Enterprise-Grade Apps</text>
+    <text x="18" y="115" font-family="'Courier New',monospace" font-size="10" fill="#6B7280" font-weight="500">ERP • SaaS • Real-Time</text>
+    <rect x="18" y="132" width="162" height="4" rx="2" fill="#1a1a26"/>
+    <rect x="18" y="132" height="4" rx="2" fill="url(#greenGrad)" opacity=".8">
+      <animate attributeName="width" from="0" to="130" dur="2s" fill="freeze"/>
+    </rect>
+    <circle cx="142" cy="134" r="3" fill="#4ADE80" class="pulseDot" filter="url(#glow)"/>
+    <text x="18" y="156" font-family="'Courier New',monospace" font-size="9" fill="#4ADE80" font-weight="700">■ ACTIVELY DEPLOYED</text>
+  </g>
+
+  <!-- Card 3: Hackathon Victories -->
+  <g transform="translate(442,28)">
+    <rect width="198" height="164" class="cardBg"/>
+    <rect x="1" y="1" width="196" height="3" rx="2" fill="url(#gold)" opacity=".6"/>
+    <text x="18" y="32" class="metricLabel">COMPETITION RECORD</text>
+    <text x="18" y="72" class="metricVal" font-size="34">1ST</text>
+    <text x="64" y="72" class="metricVal" font-size="16"> PRIZE ×2</text>
+    <text x="18" y="95" class="metricDesc">MERI-CET + State Level</text>
+    <text x="18" y="115" font-family="'Courier New',monospace" font-size="10" fill="#6B7280" font-weight="500">Best Innovator • Startup Carnival</text>
+    <rect x="18" y="132" width="162" height="4" rx="2" fill="#1a1a26"/>
+    <rect x="18" y="132" height="4" rx="2" fill="url(#gold)" opacity=".8">
+      <animate attributeName="width" from="0" to="155" dur="2s" fill="freeze"/>
+    </rect>
+    <circle cx="165" cy="134" r="3" fill="#FFDF73" class="pulseDot" filter="url(#glow)"/>
+    <text x="18" y="156" font-family="'Courier New',monospace" font-size="9" fill="#FFDF73" font-weight="700">■ AWARD VERIFIED</text>
+  </g>
+
+  <!-- Card 4: Core Stack -->
+  <g transform="translate(652,28)">
+    <rect width="206" height="164" class="cardBg"/>
+    <rect x="1" y="1" width="204" height="3" rx="2" fill="url(#gold)" opacity=".6"/>
+    <text x="18" y="32" class="metricLabel">CORE ARCHITECTURE</text>
+    <text x="18" y="60" class="metricVal" font-size="18">FULL STACK</text>
+    <!-- Stacked mini-badges -->
+    <g transform="translate(18,74)">
+      <rect width="58" height="18" rx="4" fill="#121220" stroke="#D4AF37" stroke-width=".6" stroke-opacity=".4"/>
+      <text x="29" y="13" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#FFDF73" font-weight="700">Next.js</text>
+    </g>
+    <g transform="translate(82,74)">
+      <rect width="50" height="18" rx="4" fill="#121220" stroke="#D4AF37" stroke-width=".6" stroke-opacity=".4"/>
+      <text x="25" y="13" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#FFDF73" font-weight="700">React</text>
+    </g>
+    <g transform="translate(138,74)">
+      <rect width="50" height="18" rx="4" fill="#121220" stroke="#D4AF37" stroke-width=".6" stroke-opacity=".4"/>
+      <text x="25" y="13" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#FFDF73" font-weight="700">Prisma</text>
+    </g>
+    <g transform="translate(18,98)">
+      <rect width="70" height="18" rx="4" fill="#121220" stroke="#059669" stroke-width=".6" stroke-opacity=".4"/>
+      <text x="35" y="13" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#4ADE80" font-weight="700">PostgreSQL</text>
+    </g>
+    <g transform="translate(94,98)">
+      <rect width="46" height="18" rx="4" fill="#121220" stroke="#059669" stroke-width=".6" stroke-opacity=".4"/>
+      <text x="23" y="13" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#4ADE80" font-weight="700">Flask</text>
+    </g>
+    <g transform="translate(146,98)">
+      <rect width="42" height="18" rx="4" fill="#121220" stroke="#06B6D4" stroke-width=".6" stroke-opacity=".4"/>
+      <text x="21" y="13" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#22D3EE" font-weight="700">WS</text>
+    </g>
+    <rect x="18" y="132" width="170" height="4" rx="2" fill="#1a1a26"/>
+    <rect x="18" y="132" height="4" rx="2" fill="url(#gold)" opacity=".8">
+      <animate attributeName="width" from="0" to="170" dur="2s" fill="freeze"/>
+    </rect>
+    <circle cx="180" cy="134" r="3" fill="#FFDF73" class="pulseDot" filter="url(#glow)"/>
+    <text x="18" y="156" font-family="'Courier New',monospace" font-size="9" fill="#FFDF73" font-weight="700">■ PRODUCTION READY</text>
   </g>
 </svg>
