@@ -1,0 +1,164 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 240" width="100%" height="100%">
+  <defs>
+    <linearGradient id="arcadeBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050508"/>
+      <stop offset="50%" stop-color="#0c0c14"/>
+      <stop offset="100%" stop-color="#06060a"/>
+    </linearGradient>
+
+    <linearGradient id="arcadeGold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#AA771C"/>
+      <stop offset="35%" stop-color="#FFDF73"/>
+      <stop offset="70%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#FFF2A1"/>
+    </linearGradient>
+
+    <pattern id="scanlines" width="100" height="4" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="100" y2="0" stroke="#000000" stroke-width="1.5" opacity="0.45"/>
+    </pattern>
+
+    <filter id="arcadeGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <style>
+      @keyframes laserFire {
+        0% { transform: translateX(0px); opacity: 1; }
+        80% { opacity: 1; }
+        100% { transform: translateX(260px); opacity: 0; }
+      }
+      @keyframes enemyPulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.12); }
+      }
+      @keyframes shipHover {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-5px); }
+      }
+      @keyframes buttonBlink {
+        0%, 100% { opacity: 1; filter: drop-shadow(0 0 15px rgba(212,175,55,0.7)); }
+        50% { opacity: 0.85; filter: drop-shadow(0 0 5px rgba(212,175,55,0.3)); }
+      }
+      .laser {
+        animation: laserFire 1.2s cubic-bezier(0.1, 0.7, 1.0, 0.1) infinite;
+      }
+      .enemy {
+        animation: enemyPulse 2s ease-in-out infinite;
+        transform-origin: center;
+      }
+      .ship {
+        animation: shipHover 2.5s ease-in-out infinite;
+        transform-origin: center;
+      }
+      .cta-btn {
+        animation: buttonBlink 2.2s ease-in-out infinite;
+      }
+    </style>
+  </defs>
+
+  <!-- Arcade Enclosure -->
+  <rect width="1000" height="240" rx="14" fill="url(#arcadeBg)" stroke="#D4AF37" stroke-width="1.5" stroke-opacity="0.35"/>
+
+  <!-- Grid overlay -->
+  <g opacity="0.08">
+    <line x1="0" y1="60" x2="1000" y2="60" stroke="#D4AF37" stroke-width="0.8"/>
+    <line x1="0" y1="120" x2="1000" y2="120" stroke="#D4AF37" stroke-width="0.8"/>
+    <line x1="0" y1="180" x2="1000" y2="180" stroke="#D4AF37" stroke-width="0.8"/>
+    <line x1="320" y1="0" x2="320" y2="240" stroke="#D4AF37" stroke-width="0.8"/>
+  </g>
+
+  <!-- Left Side: Interactive Mini Game Canvas Screen Mockup -->
+  <g transform="translate(24, 20)">
+    <!-- Screen Bezel -->
+    <rect width="320" height="200" rx="10" fill="#020204" stroke="#D4AF37" stroke-width="1" stroke-opacity="0.4"/>
+    <!-- Screen CRT Scanlines -->
+    <rect width="320" height="200" rx="10" fill="url(#scanlines)" pointer-events="none"/>
+
+    <!-- Screen HUD -->
+    <text x="14" y="24" font-family="'JetBrains Mono', monospace" font-size="10" fill="#4ADE80" font-weight="700">SCORE: 28,450</text>
+    <text x="180" y="24" font-family="'JetBrains Mono', monospace" font-size="10" fill="#FFDF73" font-weight="700">WAVE: 07 [ACTIVE]</text>
+    <line x1="10" y1="32" x2="310" y2="32" stroke="#D4AF37" stroke-width="0.6" stroke-opacity="0.2"/>
+
+    <!-- Golden Player Starship -->
+    <g class="ship" transform="translate(60, 110)">
+      <!-- Main Hull -->
+      <polygon points="0,-14 26,0 0,14 4,0" fill="url(#arcadeGold)" filter="url(#arcadeGlow)"/>
+      <polygon points="4,-7 18,0 4,7" fill="#050508"/>
+      <circle cx="10" cy="0" r="2.5" fill="#4ADE80"/>
+      <!-- Thruster Exhaust -->
+      <polygon points="-8,-4 0,0 -8,4" fill="#60A5FA" opacity="0.8"/>
+    </g>
+
+    <!-- Laser Beams -->
+    <g class="laser" transform="translate(90, 106)">
+      <line x1="0" y1="0" x2="24" y2="0" stroke="#FFF2A1" stroke-width="3" filter="url(#arcadeGlow)"/>
+    </g>
+    <g class="laser" transform="translate(90, 114)" style="animation-delay: -0.6s;">
+      <line x1="0" y1="0" x2="24" y2="0" stroke="#FFF2A1" stroke-width="3" filter="url(#arcadeGlow)"/>
+    </g>
+
+    <!-- Enemy 1: "Memory Bug" -->
+    <g class="enemy" transform="translate(240, 75)">
+      <polygon points="0,-10 10,0 0,10 -10,0" fill="#EF4444" opacity="0.9" filter="url(#arcadeGlow)"/>
+      <circle cx="0" cy="0" r="3" fill="#FEE2E2"/>
+      <text x="16" y="4" font-family="'JetBrains Mono', monospace" font-size="9" fill="#EF4444">BUG#404</text>
+    </g>
+
+    <!-- Enemy 2: "Latency Spike" -->
+    <g class="enemy" transform="translate(210, 145)" style="animation-delay: -1s;">
+      <polygon points="0,-9 9,0 0,9 -9,0" fill="#F59E0B" opacity="0.9"/>
+      <circle cx="0" cy="0" r="2.5" fill="#FEF3C7"/>
+      <text x="14" y="3" font-family="'JetBrains Mono', monospace" font-size="9" fill="#F59E0B">LATENCY</text>
+    </g>
+
+    <!-- Golden Crystals (Collectibles) -->
+    <g transform="translate(170, 105)">
+      <polygon points="0,-6 6,0 0,6 -6,0" fill="#FFDF73" filter="url(#arcadeGlow)"/>
+    </g>
+
+    <text x="14" y="188" font-family="'JetBrains Mono', monospace" font-size="9" fill="#9CA3AF">FPS: 60 • AUDIO: WEB-SYNTH</text>
+    <text x="230" y="188" font-family="'JetBrains Mono', monospace" font-size="9" fill="#D4AF37">HIGH: 99,800</text>
+  </g>
+
+  <!-- Right Side: Content & Action -->
+  <g transform="translate(380, 42)">
+    <!-- Category Pill -->
+    <rect x="0" y="0" width="170" height="24" rx="6" fill="#151520" stroke="#D4AF37" stroke-width="0.8" stroke-opacity="0.4"/>
+    <text x="85" y="16" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" fill="#FFDF73" letter-spacing="1.2">ARCADE MINI-GAME</text>
+
+    <!-- Main Title -->
+    <text x="0" y="56" font-family="'Space Grotesk', sans-serif" font-size="28" font-weight="800" fill="url(#arcadeGold)" letter-spacing="1">
+      CYBER GOLD DEFENDER 🕹️
+    </text>
+
+    <!-- Description -->
+    <text x="0" y="86" font-family="'Inter', sans-serif" font-size="13.5" fill="#D1D5DB" line-height="1.5">
+      Play the custom retro arcade shooter built directly in the interactive portfolio!
+    </text>
+    <text x="0" y="106" font-family="'Inter', sans-serif" font-size="12.5" fill="#9CA3AF">
+      Pilot the Aura-1 starfighter, incinerate production bugs, collect golden shards, and beat the high score.
+    </text>
+
+    <!-- Live Launch Button -->
+    <g class="cta-btn" transform="translate(0, 126)">
+      <rect x="0" y="0" width="310" height="38" rx="8" fill="url(#arcadeGold)"/>
+      <polygon points="26,19 16,12 16,26" fill="#040406"/>
+      <text x="40" y="24" font-family="'Space Grotesk', sans-serif" font-size="14" font-weight="800" fill="#050507" letter-spacing="1.2">
+        PLAY LIVE IN BROWSER ⚡
+      </text>
+      <!-- Small tag -->
+      <rect x="225" y="8" width="72" height="22" rx="4" fill="#040406"/>
+      <text x="261" y="23" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" fill="#FFDF73">NO LAG</text>
+    </g>
+
+    <!-- Tech specs -->
+    <g transform="translate(330, 134)">
+      <text x="0" y="10" font-family="'JetBrains Mono', monospace" font-size="11" fill="#FFDF73">CANVAS 2D API</text>
+      <text x="0" y="24" font-family="'JetBrains Mono', monospace" font-size="11" fill="#9CA3AF">SYNTH AUDIO FX</text>
+    </g>
+  </g>
+</svg>

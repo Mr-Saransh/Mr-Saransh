@@ -1,247 +1,738 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Saransh Gupta — Full‑Stack Developer</title>
-  <meta name="description" content="Saransh Gupta — Full-Stack Developer. Portfolio: backend, frontend, data engineering.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saransh Gupta — Full Stack Developer &amp; Software Engineer</title>
+  <meta name="description" content="Official portfolio and interactive web showcase of Saransh Gupta — Full Stack Developer specializing in Next.js, React, PostgreSQL, Prisma, and real-time systems." />
+  <meta name="keywords" content="Saransh Gupta, Full Stack Developer, Next.js, React, PostgreSQL, Prisma, Software Engineer, Portfolio, Arcade Game" />
+  <meta name="author" content="Saransh Gupta" />
 
-  <style>
-    :root{
-      --bg:#030305;
-      --card:#0b0b0b;
-      --muted:#9aa3a8;
-      --gold:#D4AF37;
-      --gold-2:#f5d88a;
-      --glass:rgba(255,255,255,0.03);
-      --radius:14px;
-      --max-width:1100px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;background:radial-gradient(700px 300px at 8% 10%, rgba(212,175,55,0.035), transparent),var(--bg);color:#eaeaea;-webkit-font-smoothing:antialiased}
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Saransh Gupta — Full Stack Developer" />
+  <meta property="og:description" content="Ultra-premium Black &amp; Gold developer portfolio, interactive terminal, and Cyber Gold Defender arcade game." />
+  <meta property="og:image" content="assets/hero-banner.svg" />
 
-    .wrap{max-width:var(--max-width);margin:28px auto;padding:20px}
-
-    /* HERO */
-    .hero{position:relative;display:flex;align-items:center;gap:28px;padding:36px;border-radius:18px;overflow:hidden;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.006));box-shadow:0 20px 60px rgba(0,0,0,0.65)}
-    .hero-left{flex:1;z-index:5}
-    .title{font-weight:800;font-size:clamp(26px,5vw,56px);margin:0 0 8px;line-height:1}
-    .title .accent{color:var(--gold);text-shadow:0 10px 40px rgba(212,175,55,0.14)}
-    .subtitle{color:var(--muted);margin:6px 0 18px;font-size:15px}
-
-    .badges{display:flex;gap:10px;margin-bottom:18px}
-    .badge{display:inline-grid;place-items:center;width:56px;height:56px;border-radius:12px;background:linear-gradient(180deg,rgba(212,175,55,0.06),rgba(255,255,255,0.01));color:var(--gold);font-weight:700;box-shadow:0 10px 36px rgba(212,175,55,0.04);transform:translateY(0);transition:transform .32s ease}
-    .badge:hover{transform:translateY(-10px) rotate(-6deg)}
-
-    .cta{display:inline-block;padding:12px 18px;border-radius:999px;background:var(--gold);color:#0b0b0b;text-decoration:none;font-weight:700;margin-right:10px;box-shadow:0 20px 44px rgba(212,175,55,0.12);transition:transform .16s ease}
-    .cta.secondary{background:transparent;color:var(--gold);border:1px solid rgba(212,175,55,0.12)}
-
-    /* hero right visual area */
-    .hero-right{width:520px;height:320px;position:relative;flex:0 0 520px;z-index:3}
-    .canvas-layer{position:absolute;inset:0;border-radius:14px;overflow:hidden}
-    canvas{width:100%;height:100%;display:block}
-
-    /* central card over canvas */
-    .viz-card{position:absolute;right:20px;top:24px;width:320px;padding:18px;border-radius:14px;background:linear-gradient(180deg,rgba(12,12,12,0.6),rgba(12,12,12,0.35));backdrop-filter:blur(6px);box-shadow:0 24px 60px rgba(0,0,0,0.65);border:1px solid rgba(212,175,55,0.06)}
-    .viz-card h3{margin:0 0 8px;font-size:18px}
-    .viz-orb{width:84px;height:84px;border-radius:50%;background:radial-gradient(circle at 35% 30%,var(--gold-2),var(--gold));box-shadow:0 20px 60px rgba(212,175,55,0.12);display:inline-block;margin-right:12px;vertical-align:middle}
-    .viz-meta{display:inline-block;vertical-align:middle;color:var(--muted);font-size:13px}
-
-    /* sections */
-    .panel{margin-top:22px;padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);}
-    .panel-title{margin:0 0 8px;font-size:18px}
-    .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-
-    .skill{padding:12px;border-radius:10px;background:rgba(255,255,255,0.02)}
-    .skill h4{margin:0 0 6px}
-    .meter{height:10px;background:rgba(255,255,255,0.03);border-radius:999px;overflow:hidden}
-    .meter > span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold-2));border-radius:999px;transition:width 900ms cubic-bezier(.2,.9,.2,1)}
-
-    /* project cards */
-    .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:10px}
-    .project{padding:12px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);transition:transform .28s ease,box-shadow .28s}
-    .project:hover{transform:translateY(-8px);box-shadow:0 40px 80px rgba(0,0,0,0.6)}
-
-    footer{margin-top:26px;text-align:center;color:var(--muted)}
-
-    /* responsive */
-    @media (max-width:1000px){.hero{flex-direction:column}.hero-right{width:100%;height:260px;flex-basis:auto}}
-    @media (max-width:700px){.skills{grid-template-columns:repeat(2,1fr)}.projects{grid-template-columns:1fr}} 
-
-    /* prefers reduced motion */
-    @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-  </style>
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="assets/styles.css" />
 </head>
 <body>
-  <div class="wrap">
-    <header class="hero">
-      <div class="hero-left">
-        <h1 class="title">Saransh Gupta <span class="accent">— Full‑Stack Developer</span></h1>
-        <p class="subtitle">Designing and building high‑performance backends, responsive frontends, and scalable data systems.</p>
 
-        <div class="badges" aria-hidden="true">
-          <div class="badge" title="Python">Py</div>
-          <div class="badge" title="JavaScript">JS</div>
-          <div class="badge" title="Postgres">PG</div>
-          <div class="badge" title="React">R</div>
+  <!-- Ambient Glow & Interactive Particles Canvas -->
+  <div class="ambient-glow"></div>
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="container navbar-inner">
+      <a href="#" class="brand-logo" id="brand-link">
+        <div class="brand-crest">SG</div>
+        <div class="brand-name">
+          SARANSH GUPTA
+          <span class="brand-badge mono">5TH SEM // CSE</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#arcade" class="nav-link arcade-tab">🕹️ Play Arcade</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#milestones" class="nav-link">Architecture</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#awards" class="nav-link">Awards</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-controls">
+        <button id="nav-sound-btn" class="icon-btn" title="Toggle Synthesizer Sound FX">
+          🔊 Sound: ON
+        </button>
+        <button id="nav-terminal-btn" class="icon-btn" title="Open Hacker Terminal (~)">
+          ~ Terminal
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="about">
+    <div class="container hero-grid">
+      <div class="hero-left">
+        <div class="status-badge">
+          <span class="status-dot"></span>
+          <span>Open for High-Impact Software Engineering Roles</span>
         </div>
 
-        <div>
-          <a class="cta" href="#projects">View Projects 🚀</a>
-          <a class="cta secondary" href="mailto:saranshagrahari1221@gmail.com">Get in touch ✉️</a>
+        <h1 class="hero-title">
+          Architecting <span class="gold-text">Scalable Web Systems</span> &amp; Modern Real-Time Experiences.
+        </h1>
+
+        <p class="hero-subtitle mono">
+          Full Stack Developer • Next.js &amp; React Architect • Scalable Backends
+        </p>
+
+        <p class="hero-bio">
+          Computer Science undergraduate with hands-on experience in full-stack web development across multiple software engineering systems. Contributed to production web applications including an enterprise Construction ERP &amp; CRM, gamified execution engines, and real-time collaboration platforms. Passionate about software engineering, scalable systems, and building practical solutions while continuously strengthening core computer science fundamentals.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#arcade" class="btn btn-gold">
+            <span>🕹️ Play Cyber Gold Defender</span>
+          </a>
+          <a href="#projects" class="btn btn-outline">
+            <span>🚀 Explore Projects</span>
+          </a>
+          <a href="#cv-modal" class="btn btn-outline btn-open-cv">
+            <span>📄 View Official CV</span>
+          </a>
+        </div>
+
+        <div class="hero-highlights">
+          <div class="highlight-item">
+            <span class="highlight-icon">⭐</span>
+            <div>
+              <strong style="color:#FFDF73;">Rank 1st (Sem II &amp; IV)</strong>
+              <div style="font-size:11px; color:#9CA3AF;">Department Academic Topper</div>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <span class="highlight-icon">🏆</span>
+            <div>
+              <strong style="color:#FFDF73;">1st Prize Winner</strong>
+              <div style="font-size:11px; color:#9CA3AF;">MERI-CET &amp; State Innovator</div>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <span class="highlight-icon">🚀</span>
+            <div>
+              <strong style="color:#FFDF73;">5+ Production Apps</strong>
+              <div style="font-size:11px; color:#9CA3AF;">ERP, SaaS &amp; Real-Time Systems</div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="hero-right" aria-hidden="true">
-        <div class="canvas-layer"><canvas id="particles"></canvas></div>
+      <!-- Hero Right: Holographic Tech Orb & Live Telemetry -->
+      <div class="hero-visual-box">
+        <div class="hologram-card">
+          <div class="holo-header">
+            <span class="holo-title">SYSTEM_CORE // TELEMETRY</span>
+            <span class="holo-live-tag">● ONLINE 60FPS</span>
+          </div>
 
-        <div class="viz-card" role="img" aria-label="Animated orb visualization">
-          <div style="display:flex;align-items:center">
-            <div class="viz-orb" id="viz-orb"></div>
-            <div class="viz-meta">
-              <div style="font-weight:700">Full‑Stack Systems</div>
-              <div style="margin-top:6px;color:var(--muted);font-size:13px">APIs • Databases • Real-time</div>
+          <div class="holo-orb-wrapper">
+            <div class="holo-ring"></div>
+            <div class="holo-orb"></div>
+          </div>
+
+          <div style="text-align: center; margin-bottom: 14px;">
+            <div style="font-weight: 700; font-size: 17px; color: #FFFFFF;">Full Stack Architecture</div>
+            <div style="font-size: 12.5px; color: #9CA3AF; margin-top: 2px;">
+              Next.js • React • PostgreSQL • Prisma • WebSockets
+            </div>
+          </div>
+
+          <div class="holo-stats-grid">
+            <div class="holo-stat-cell">
+              <div class="holo-stat-label">Academic Rank</div>
+              <div class="holo-stat-value">Rank 1st</div>
+            </div>
+            <div class="holo-stat-cell">
+              <div class="holo-stat-label">Production Apps</div>
+              <div class="holo-stat-value">5+ Deployed</div>
+            </div>
+            <div class="holo-stat-cell">
+              <div class="holo-stat-label">B.Tech Degree</div>
+              <div class="holo-stat-value">Ongoing 5th Sem</div>
+            </div>
+            <div class="holo-stat-cell">
+              <div class="holo-stat-label">UI Optimization</div>
+              <div class="holo-stat-value">60 FPS Native</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Arcade Mini-Game Section -->
+  <section class="arcade-section" id="arcade">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">CUSTOM MINI-GAME</span>
+        <h2 class="section-title">
+          CYBER GOLD <span class="gold-text">DEFENDER ARCADE</span> 🕹️
+        </h2>
+        <p class="section-desc">
+          Built exclusively with HTML5 Canvas 2D &amp; Web Audio API sound synthesizer. Defend the server against bug anomalies, latency spikes, and memory leaks!
+        </p>
+      </div>
+
+      <!-- Arcade Cabinet Enclosure -->
+      <div class="arcade-cabinet">
+        <div class="cabinet-top-bar">
+          <div class="cabinet-title">
+            <span>⚡ AURA-1 STARFIGHTER // MISSION CONTROL</span>
+          </div>
+          <div class="cabinet-hud">
+            <div>SCORE: <span id="hud-score" class="hud-val">0</span></div>
+            <div>WAVE: <span id="hud-wave" class="hud-val">01</span></div>
+            <div>SHIELD: <span id="hud-shield" class="hud-val" style="color:#4ADE80;">100%</span></div>
+            <div>HIGH: <span id="hud-high" class="hud-val">0</span></div>
+          </div>
+        </div>
+
+        <div class="arcade-screen-wrap">
+          <canvas id="game-canvas"></canvas>
+          <div class="crt-scanlines" id="crt-overlay"></div>
+
+          <!-- Start / Game Over Overlay -->
+          <div class="game-overlay" id="game-overlay">
+            <h3 class="game-overlay-title gold-text" id="overlay-title">CYBER GOLD DEFENDER</h3>
+            <p class="game-overlay-sub" id="overlay-sub">
+              Pilot the golden starfighter. Destroy memory leaks, latency spikes, and production bugs. Collect golden crystals for laser overdrive!
+            </p>
+
+            <div class="game-controls-hint">
+              <div><span class="hint-key">MOUSE / TOUCH</span> or <span class="hint-key">WASD / ARROWS</span> Steer</div>
+              <div><span class="hint-key">SPACEBAR</span> or <span class="hint-key">TAP</span> Fire Pulse Laser</div>
+            </div>
+
+            <button class="btn btn-gold" id="game-start-btn" style="padding: 14px 36px; font-size: 16px;">
+              🚀 LAUNCH STARFIGHTER
+            </button>
+          </div>
+        </div>
+
+        <div class="cabinet-bottom-bar">
+          <div>ENGINE: CANVAS 2D • 60 FPS • SYNTH AUDIO FX (NO LIBRARIES)</div>
+          <div>
+            <button class="game-toggle-btn" id="toggle-crt-btn">CRT: ON</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Production Projects Section -->
+  <section class="projects-section" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">VERIFIED PORTFOLIO</span>
+        <h2 class="section-title">
+          Featured <span class="gold-text">Production Projects</span>
+        </h2>
+        <p class="section-desc">
+          Architectural solutions engineered for performance, modular scalability, and real-world production workloads.
+        </p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="all">All Projects</button>
+        <button class="filter-tab" data-filter="fullstack">Full-Stack &amp; ERP</button>
+        <button class="filter-tab" data-filter="realtime">Real-Time &amp; WebSockets</button>
+        <button class="filter-tab" data-filter="ai">AI &amp; SaaS</button>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="projects-grid">
+
+        <!-- Project 1: Apni Estate -->
+        <div class="project-card" data-category="fullstack" data-project-id="apni-estate">
+          <div class="project-card-badge">ENTERPRISE ERP</div>
+          <div class="project-icon">🏗️</div>
+          <h3 class="project-name">Apni Estate</h3>
+          <div class="project-role-tag">Construction ERP &amp; CRM Platform</div>
+          <p class="project-desc">
+            Comprehensive multi-department ERP and CRM system supporting real-world construction business operations.
+          </p>
+          <ul class="project-highlights-list">
+            <li>Role-based dashboards for builders, supervisors, project managers, accountants, and sales executives.</li>
+            <li>Modules: inventory management, attendance, vendor management, purchase orders, billing, and project tracking.</li>
+            <li>Scalable database architecture designed to handle heavy transactional volume.</li>
+          </ul>
+          <div class="tech-tags">
+            <span class="tech-tag">Next.js</span>
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">Tailwind CSS</span>
+            <span class="tech-tag">PostgreSQL</span>
+            <span class="tech-tag">Prisma ORM</span>
+          </div>
+        </div>
+
+        <!-- Project 2: ACTIFY -->
+        <div class="project-card" data-category="fullstack" data-project-id="actify">
+          <div class="project-card-badge">GAMIFIED MVP</div>
+          <div class="project-icon">⚡</div>
+          <h3 class="project-name">ACTIFY</h3>
+          <div class="project-role-tag">Execution Enforcement Platform</div>
+          <p class="project-desc">
+            A high-accountability productivity platform that transforms long-term aspirations into mandatory daily execution.
+          </p>
+          <ul class="project-highlights-list">
+            <li>Proof-based task verification ensuring verified completion before advancing.</li>
+            <li>ACT Points, ACT Currency, dynamic leaderboards, streaks, penalties, and task-locking triggers.</li>
+            <li>Built and deployed functional MVP with continuous iterative feature deployments.</li>
+          </ul>
+          <div class="tech-tags">
+            <span class="tech-tag">Next.js</span>
+            <span class="tech-tag">Tailwind CSS</span>
+            <span class="tech-tag">PostgreSQL</span>
+            <span class="tech-tag">Prisma ORM</span>
+          </div>
+        </div>
+
+        <!-- Project 3: COACT -->
+        <div class="project-card" data-category="realtime" data-project-id="coact">
+          <div class="project-card-badge project-award-badge">🏆 1ST PRIZE WINNER</div>
+          <div class="project-icon">🌐</div>
+          <h3 class="project-name">COACT</h3>
+          <div class="project-role-tag">Real-Time Group Interaction Platform</div>
+          <p class="project-desc">
+            Real-time collaboration suite integrating group study, live classroom interactions, quizzes, polls, and interactive decision-making.
+          </p>
+          <ul class="project-highlights-list">
+            <li>Awarded First Prize (Software Category) at the MERI-CET Project Competition.</li>
+            <li>Sub-50ms WebSocket synchronization for live quizzes, voting, leaderboards, and participant presence.</li>
+            <li>Gamified modules: Trivia Night, Word Chain, collaborative discussions, and live polling.</li>
+          </ul>
+          <div class="tech-tags">
+            <span class="tech-tag">Next.js</span>
+            <span class="tech-tag">TypeScript</span>
+            <span class="tech-tag">Tailwind CSS</span>
+            <span class="tech-tag">WebSockets</span>
+          </div>
+        </div>
+
+        <!-- Project 4: AI Telemedicine -->
+        <div class="project-card" data-category="ai" data-project-id="telemed">
+          <div class="project-card-badge">HEALTHCARE AI</div>
+          <div class="project-icon">🩺</div>
+          <h3 class="project-name">AI Telemedicine Application</h3>
+          <div class="project-role-tag">Voice-First Healthcare Assistant</div>
+          <p class="project-desc">
+            Voice-first conversational assistant improving healthcare accessibility for low-literacy and multilingual users.
+          </p>
+          <ul class="project-highlights-list">
+            <li>AI-powered conversational symptom guidance using Natural Language Processing.</li>
+            <li>Speech-focused interface minimizing dependence on complex navigation menus.</li>
+            <li>Engineered for accessibility, usability, and practical assistance in underserved communities.</li>
+          </ul>
+          <div class="tech-tags">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">NLP</span>
+            <span class="tech-tag">Flask</span>
+            <span class="tech-tag">SQLite</span>
+          </div>
+        </div>
+
+        <!-- Project 5: ATITHI -->
+        <div class="project-card" data-category="ai" data-project-id="atithi">
+          <div class="project-card-badge">SAAS PLATFORM</div>
+          <div class="project-icon">🏨</div>
+          <h3 class="project-name">ATITHI</h3>
+          <div class="project-role-tag">Guest House Management SaaS</div>
+          <p class="project-desc">
+            Cloud-based hospitality management SaaS facilitating seamless guest bookings, room allocations, and administrative workflows.
+          </p>
+          <ul class="project-highlights-list">
+            <li>CRUD management, role-based authentication, and centralized admin operational dashboards.</li>
+            <li>Database-driven workflows automating guest reservations and room occupancy logistics.</li>
+            <li>Responsive interfaces simplifying day-to-day operations for administrators.</li>
+          </ul>
+          <div class="tech-tags">
+            <span class="tech-tag">Python (Flask)</span>
+            <span class="tech-tag">HTML5 / CSS3</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">SQL</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Architectural Engineering Milestones Section -->
+  <section class="experience-section" id="milestones">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">ENGINEERING MILESTONES</span>
+        <h2 class="section-title">
+          System Architecture &amp; <span class="gold-text">Deliverables</span>
+        </h2>
+        <p class="section-desc">
+          Building production-ready systems, custom interactive media engines, and resilient database schemas.
+        </p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-node">
+          <div class="timeline-marker"></div>
+          <div class="exp-card">
+            <div class="exp-header">
+              <div>
+                <h3 class="exp-role">Enterprise System Architecture &amp; ERP Platforms</h3>
+                <div class="exp-company">Flagship Full-Stack Engineering</div>
+              </div>
+              <div class="exp-duration">2025 – Present</div>
+            </div>
+
+            <ul class="exp-bullets">
+              <li>Architected full-scale enterprise systems integrating multi-tenant RBAC (Builders, Supervisors, Accountants, Sales, Admin).</li>
+              <li>Engineered high-performance real-time synchronization pipelines with WebSockets for interactive multiplayer trivia, voting, and classroom tools.</li>
+              <li>Designed relational PostgreSQL database models with Prisma ORM optimized for complex transactional workflows, billing, and inventory tracking.</li>
+              <li>Engineered speech-first NLP pipelines to translate low-literacy voice symptoms into medical diagnostic suggestions.</li>
+              <li>Deployed scalable serverless platforms on Vercel, Railway, and Render with robust CI/CD automation.</li>
+            </ul>
+
+            <div class="tech-tags">
+              <span class="tech-tag">Next.js</span>
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Tailwind CSS</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">Prisma ORM</span>
+              <span class="tech-tag">WebSockets</span>
+              <span class="tech-tag">Python (Flask)</span>
+              <span class="tech-tag">REST APIs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Skills Matrix Section -->
+  <section class="skills-section" id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">TECHNICAL CAPABILITIES</span>
+        <h2 class="section-title">
+          Core Engineering <span class="gold-text">Arsenal</span>
+        </h2>
+        <p class="section-desc">
+          Proficiencies spanning languages, client-side rendering, robust backend APIs, relational databases, and developer tooling.
+        </p>
+      </div>
+
+      <div class="skills-matrix-grid">
+
+        <!-- Card 1: Languages -->
+        <div class="skill-category-card">
+          <div class="skill-cat-header">
+            <span class="skill-cat-icon">💻</span>
+            <h3 class="skill-cat-title">Programming Languages</h3>
+          </div>
+          <div class="skill-bars">
+            <div class="skill-bar-item">
+              <div class="skill-bar-info"><span>JavaScript (ES6+)</span><span class="gold-text">95%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 95%;"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-info"><span>Python</span><span class="gold-text">92%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 92%;"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-info"><span>C++ &amp; C</span><span class="gold-text">88%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 88%;"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-info"><span>SQL</span><span class="gold-text">90%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 90%;"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Frontend Architecture -->
+        <div class="skill-category-card">
+          <div class="skill-cat-header">
+            <span class="skill-cat-icon">🎨</span>
+            <h3 class="skill-cat-title">Frontend Architecture</h3>
+          </div>
+          <div class="skill-bars">
+            <div class="skill-bar-item">
+              <div class="skill-bar-info"><span>Next.js &amp; App Router</span><span class="gold-text">94%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 94%;"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-info"><span>React.js</span><span class="gold-text">92%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 92%;"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-info"><span>Tailwind CSS</span><span class="gold-text">96%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 96%;"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-info"><span>HTML5, CSS3 &amp; Responsive UI</span><span class="gold-text">95%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 95%;"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Backend & Databases -->
+        <div class="skill-category-card">
+          <div class="skill-cat-header">
+            <span class="skill-cat-icon">⚙️</span>
+            <h3 class="skill-cat-title">Backend &amp; Databases</h3>
+          </div>
+          <div class="skill-bars">
+            <div class="skill-bar-item">
+              <div class="skill-bar-info"><span>PostgreSQL &amp; Prisma ORM</span><span class="gold-text">92%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 92%;"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-info"><span>Flask &amp; REST APIs</span><span class="gold-text">88%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 88%;"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-info"><span>WebSockets (Real-Time)</span><span class="gold-text">90%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 90%;"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-info"><span>Role-Based Auth (RBAC)</span><span class="gold-text">94%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 94%;"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Tools & Core CS -->
+        <div class="skill-category-card">
+          <div class="skill-cat-header">
+            <span class="skill-cat-icon">🛠️</span>
+            <h3 class="skill-cat-title">Cloud Tools &amp; Core CS</h3>
+          </div>
+          <div class="skill-bars">
+            <div class="skill-bar-item">
+              <div class="skill-bar-info"><span>Data Structures &amp; Algorithms (DSA)</span><span class="gold-text">88%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 88%;"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-info"><span>Git, GitHub &amp; CI/CD</span><span class="gold-text">94%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 94%;"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-info"><span>Vercel, Render, Railway, AWS</span><span class="gold-text">90%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 90%;"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-info"><span>DBMS, OOP &amp; Operating Systems</span><span class="gold-text">91%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 91%;"></div></div>
             </div>
           </div>
         </div>
 
       </div>
-    </header>
+    </div>
+  </section>
 
-    <section class="panel">
-      <h2 class="panel-title">Core Skills</h2>
-      <div class="skills">
-        <div class="skill">
-          <h4>Backend</h4>
-          <div>Python, C++, APIs, Database Design</div>
-          <div class="meter" style="margin-top:10px"><span data-w="90%"></span></div>
+  <!-- Honors & Achievements Section -->
+  <section class="awards-section" id="awards">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">EXCELLENCE &amp; RECOGNITION</span>
+        <h2 class="section-title">
+          Honors &amp; <span class="gold-text">Achievements</span>
+        </h2>
+        <p class="section-desc">
+          State competitions, university project awards, and consistent departmental academic topper standing.
+        </p>
+      </div>
+
+      <div class="awards-grid">
+        <!-- Award 1 -->
+        <div class="award-card">
+          <div class="award-trophy">⭐</div>
+          <h3 class="award-title">Ranked 1st in Semester II &amp; IV</h3>
+          <div class="award-event">MERI College of Engineering &amp; Technology</div>
+          <p class="award-desc">
+            Attained Rank 1 among Computer Science &amp; Engineering students across both Semester II and Semester IV (Ongoing Semester V).
+          </p>
         </div>
-        <div class="skill">
-          <h4>Frontend</h4>
-          <div>JavaScript, React, HTML, CSS, Animations</div>
-          <div class="meter" style="margin-top:10px"><span data-w="92%"></span></div>
+
+        <!-- Award 2 -->
+        <div class="award-card">
+          <div class="award-trophy">🥇</div>
+          <h3 class="award-title">First Prize — Software Category</h3>
+          <div class="award-event">MERI-CET Project Competition</div>
+          <p class="award-desc">
+            Awarded top honors for <b>COACT</b>, the real-time group collaboration and gamified interaction platform built with WebSockets.
+          </p>
         </div>
-        <div class="skill">
-          <h4>Data & DevOps</h4>
-          <div>Postgres, ETL, Docker, CI/CD</div>
-          <div class="meter" style="margin-top:10px"><span data-w="88%"></span></div>
+
+        <!-- Award 3 -->
+        <div class="award-card">
+          <div class="award-trophy">🏆</div>
+          <h3 class="award-title">Best Student Innovator Award</h3>
+          <div class="award-event">Startup Carnival Haryana 2026</div>
+          <p class="award-desc">
+            Awarded for architecting and presenting an innovative software solution in a competitive state-level startup championship.
+          </p>
+        </div>
+
+        <!-- Award 4 -->
+        <div class="award-card">
+          <div class="award-trophy">🥈</div>
+          <h3 class="award-title">Second Prize Winner</h3>
+          <div class="award-event">MERI Project Competition</div>
+          <p class="award-desc">
+            Recognized by faculty and industry juries for demonstrating software innovation, robust architecture, and polished UI execution.
+          </p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="panel">
-      <h2 class="panel-title">Featured Projects</h2>
-      <div class="projects">
-        <div class="project">
-          <strong>Realtime Analytics Dashboard</strong>
-          <div style="color:var(--muted);margin-top:8px">Streaming ETL → Postgres → React visualizations. Focus on reliability and UX.</div>
+  <!-- Education & Leadership Section -->
+  <section class="edu-section" id="education">
+    <div class="container">
+      <div class="edu-grid">
+        <div class="edu-card">
+          <h3 class="edu-title">Bachelor of Technology (B.Tech)</h3>
+          <div class="edu-inst">Computer Science &amp; Engineering • 2024 – 2028 (Ongoing 5th Sem)</div>
+          <p class="edu-meta">
+            <b>MERI College of Engineering &amp; Technology</b><br/>
+            Affiliated to Maharshi Dayanand University (MDU)<br/>
+            Academic Distinction: <b>Rank 1st (Sem II &amp; IV)</b><br/>
+            Class XII (CBSE): 88%
+          </p>
         </div>
-        <div class="project">
-          <strong>Scalable API Platform</strong>
-          <div style="color:var(--muted);margin-top:8px">Microservices, observability, and production-grade CI/CD.</div>
-        </div>
-        <div class="project">
-          <strong>Interactive Data Viz</strong>
-          <div style="color:var(--muted);margin-top:8px">High-performance visual components for large datasets.</div>
+
+        <div class="edu-card">
+          <h3 class="edu-title">Leadership &amp; Volunteering</h3>
+          <div class="edu-inst">Technical Assistance &amp; Operations</div>
+          <p class="edu-meta">
+            ✦ <b>Volunteer — Indian Space Congress 2026</b> (Technical Assistance)<br/>
+            ✦ <b>Volunteer — DefSAT 2026</b> (Technical Assistance)<br/>
+            ✦ Active contributor to developer communities and open-source initiatives.
+          </p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <footer>
-      Made with <span style="color:var(--gold);">❤</span> by Saransh — <a href="https://github.com/Mr-Saransh" style="color:var(--gold);text-decoration:none">GitHub</a>
-    </footer>
+  <!-- Interactive Hacker Terminal Modal -->
+  <div class="terminal-modal hidden" id="terminal-modal">
+    <div class="terminal-header">
+      <div class="terminal-dots">
+        <div class="terminal-dot dot-red"></div>
+        <div class="terminal-dot dot-yellow"></div>
+        <div class="terminal-dot dot-green"></div>
+      </div>
+      <div class="terminal-title">saransh@gold-terminal:~$</div>
+      <button class="terminal-close" id="terminal-close-btn" title="Close Terminal">✕</button>
+    </div>
+    <div class="terminal-body">
+      <div class="terminal-output" id="terminal-output">
+<span style="color:#D4AF37;">=====================================================</span>
+<span style="color:#FFDF73;">★ SARANSH GUPTA // INTERACTIVE CLI ENVIRONMENT ★</span>
+<span style="color:#9CA3AF;">Type <strong style="color:#FFDF73">help</strong> to view available commands or <strong style="color:#FFDF73">arcade</strong> to play!</span>
+<span style="color:#D4AF37;">=====================================================</span>
+      </div>
+      <div class="terminal-input-row">
+        <span class="terminal-prompt">saransh@gold:~$</span>
+        <input type="text" id="terminal-input" class="terminal-input" autocomplete="off" spellcheck="false" />
+      </div>
+    </div>
   </div>
 
+  <!-- Floating Terminal Launcher Pill -->
+  <button class="terminal-launcher-pill" id="terminal-launcher" title="Launch Interactive Terminal (~)">
+    <span>⚡ Terminal</span>
+    <span class="mono" style="font-size:10px; opacity:0.8;">[~]</span>
+  </button>
+
+  <!-- Project Details Modal -->
+  <div class="modal-backdrop" id="project-modal">
+    <div class="modal-content">
+      <button class="modal-close-btn" title="Close">✕</button>
+      <div id="project-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- CV Viewer Modal -->
+  <div class="modal-backdrop" id="cv-modal">
+    <div class="modal-content" style="max-width: 780px;">
+      <button class="modal-close-btn" title="Close">✕</button>
+      <div style="border-bottom: 1px solid var(--border-gold); padding-bottom: 16px; margin-bottom: 20px;">
+        <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; color: #FFFFFF;">
+          SARANSH GUPTA
+        </h2>
+        <div style="color: var(--gold-light); font-size: 14px; margin-top: 4px;">
+          Full Stack Developer • B.Tech Computer Science &amp; Engineering (Ongoing 5th Sem)
+        </div>
+        <div style="color: #9CA3AF; font-size: 12px; margin-top: 6px;">
+          +91-8368419757 • saranshagrahari1221@gmail.com • linkedin.com/in/mr-saransh • github.com/Mr-Saransh
+        </div>
+      </div>
+
+      <div style="font-size: 13.5px; color: #D1D5DB; line-height: 1.7;">
+        <h4 style="color: #FFDF73; margin: 16px 0 6px;">Summary</h4>
+        <p>Computer Science undergraduate with hands-on experience in full-stack web development across multiple production-grade software projects. Contributed to web applications including a Construction ERP, execution platforms, and real-time interactive tools. Passionate about software engineering, scalable systems, and building practical solutions while continuously strengthening core computer science fundamentals.</p>
+
+        <h4 style="color: #FFDF73; margin: 16px 0 6px;">Academic Distinction</h4>
+        <p><b>Ranked 1st in Semester II &amp; Semester IV</b> among Computer Science &amp; Engineering students at MERI College of Engineering &amp; Technology (Affiliated to MDU). Currently in 5th Semester. Class XII: 88%.</p>
+
+        <h4 style="color: #FFDF73; margin: 16px 0 6px;">Featured Projects</h4>
+        <p>
+          • <b>Apni Estate</b> (Next.js, React, Tailwind CSS, PostgreSQL, Prisma) — Construction ERP &amp; CRM with multi-tier role-based dashboards.<br/>
+          • <b>ACTIFY</b> (Next.js, Tailwind, PostgreSQL, Prisma) — Execution Enforcement Platform with proof verification &amp; gamification.<br/>
+          • <b>COACT</b> (Next.js, TypeScript, WebSockets) — 1st Prize Winner @ MERI-CET Project Competition for real-time collaboration.<br/>
+          • <b>AI Telemedicine</b> (Python, NLP, Flask, SQLite) — Voice-first healthcare assistant for accessibility.<br/>
+          • <b>ATITHI</b> (Flask, SQL, JS) — Guest House Management SaaS with automated reservation pipelines.
+        </p>
+
+        <h4 style="color: #FFDF73; margin: 16px 0 6px;">Honors &amp; Awards</h4>
+        <p>
+          • 🥇 1st Prize – Software Category, MERI-CET Project Competition for COACT<br/>
+          • 🏆 Best Student Innovator Award – Startup Carnival Haryana 2026<br/>
+          • ⭐ Ranked 1st in Semester II &amp; IV among CSE students at MERI-CET<br/>
+          • 🥈 2nd Prize – MERI Project Competition
+        </p>
+      </div>
+
+      <div style="margin-top: 24px; display: flex; gap: 12px; justify-content: flex-end;">
+        <button class="btn btn-outline" onclick="window.print()">🖨️ Print / Save PDF</button>
+        <a href="mailto:saranshagrahari1221@gmail.com" class="btn btn-gold">✉️ Contact Saransh</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Floating Bottom Action Dock -->
+  <div class="mobile-dock">
+    <a href="#about" class="dock-item"><span>👤</span><span>Bio</span></a>
+    <a href="#arcade" class="dock-item arcade-glow"><span>🕹️</span><span>Arcade</span></a>
+    <a href="#projects" class="dock-item"><span>🚀</span><span>Projects</span></a>
+    <a href="#skills" class="dock-item"><span>⚡</span><span>Skills</span></a>
+    <button id="dock-term-btn" class="dock-item"><span>💻</span><span>CLI</span></button>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="#about" class="footer-link">About</a>
+        <a href="#arcade" class="footer-link">Cyber Gold Arcade</a>
+        <a href="#projects" class="footer-link">Projects</a>
+        <a href="#milestones" class="footer-link">Architecture</a>
+        <a href="https://github.com/Mr-Saransh" target="_blank" class="footer-link">GitHub</a>
+        <a href="https://linkedin.com/in/mr-saransh" target="_blank" class="footer-link">LinkedIn</a>
+        <a href="mailto:saranshagrahari1221@gmail.com" class="footer-link">Email</a>
+      </div>
+      <p class="footer-copy">
+        Crafted with obsessive precision in Obsidian Black &amp; Metallic Gold by <b>Saransh Gupta</b>.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript Engine -->
+  <script src="assets/script.js"></script>
   <script>
-    (function(){
-      var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      // Particle background (Canvas) - lightweight, GPU-friendly
-      var canvas = document.getElementById('particles');
-      var ctx = canvas.getContext('2d');
-      var DPR = Math.max(1, window.devicePixelRatio || 1);
-      var w, h, particles = [];
-
-      function resize(){
-        w = canvas.width = canvas.clientWidth * DPR;
-        h = canvas.height = canvas.clientHeight * DPR;
-        ctx.setTransform(DPR,0,0,DPR,0,0);
-      }
-
-      function rand(min,max){return Math.random()*(max-min)+min}
-
-      function createParticles(n){
-        particles = [];
-        for(var i=0;i<n;i++){
-          particles.push({x:rand(0,w), y:rand(0,h), r:rand(0.6,2.4), vx:rand(-0.15,0.15), vy:rand(-0.05,0.05), alpha:rand(0.06,0.22)});
-        }
-      }
-
-      function draw(){
-        ctx.clearRect(0,0,canvas.clientWidth,canvas.clientHeight);
-        // subtle vignette
-        for(var i=0;i<particles.length;i++){
-          var p = particles[i];
-          p.x += p.vx; p.y += p.vy;
-          if(p.x< -10) p.x = canvas.clientWidth + 10; if(p.x>canvas.clientWidth+10) p.x = -10;
-          if(p.y< -10) p.y = canvas.clientHeight +10; if(p.y>canvas.clientHeight+10) p.y = -10;
-
-          ctx.beginPath();
-          var g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r*10);
-          g.addColorStop(0, 'rgba(212,175,55,' + (p.alpha*1.0) + ')');
-          g.addColorStop(1, 'rgba(212,175,55,0)');
-          ctx.fillStyle = g;
-          ctx.arc(p.x, p.y, p.r*6, 0, Math.PI*2);
-          ctx.fill();
-        }
-        // lines between nearby particles
-        ctx.lineWidth=0.6; ctx.strokeStyle='rgba(212,175,55,0.06)';
-        for(var i=0;i<particles.length;i++){
-          for(var j=i+1;j<particles.length;j++){
-            var a=particles[i], b=particles[j];
-            var dx=a.x-b.x, dy=a.y-b.y; var dist = Math.sqrt(dx*dx+dy*dy);
-            if(dist<80){ ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke(); }
-          }
-        }
-      }
-
-      var animId;
-      function loop(){ draw(); animId = requestAnimationFrame(loop); }
-
-      function startParticles(){
-        if(prefersReduced) return; // respect reduced motion
-        resize(); createParticles(Math.max(24, Math.floor((canvas.clientWidth*canvas.clientHeight)/9000)));
-        cancelAnimationFrame(animId); loop();
-      }
-
-      window.addEventListener('resize', function(){ clearTimeout(window._resizeTimer); window._resizeTimer = setTimeout(function(){ resize(); createParticles(particles.length); },120); });
-
-      // Viz orb breathing
-      var orb = document.getElementById('viz-orb');
-      if(orb && !prefersReduced){
-        var t=0; function breathe(){ t+=0.02; var s=1+Math.sin(t)/32; orb.style.transform = 'scale('+s+')'; requestAnimationFrame(breathe);} breathe();
-      }
-
-      // reveal meters
-      document.addEventListener('DOMContentLoaded', function(){
-        // setup canvas size accurately and start
-        try{ startParticles(); } catch(e){}
-        // animate meters
-        document.querySelectorAll('.meter > span').forEach(function(el,i){ var w = el.getAttribute('data-w')||'80%'; setTimeout(function(){ el.style.width = w; }, 160 + i*140); });
-
-        // small entrance animations
-        document.querySelectorAll('.project, .skill').forEach(function(el,i){ el.style.opacity=0; el.style.transform='translateY(10px)'; setTimeout(function(){ el.style.transition='transform .42s cubic-bezier(.2,.9,.2,1),opacity .42s'; el.style.opacity=1; el.style.transform='none'; }, 200 + i*80); });
-      });
-
-      // simple parallax for hero-right on mousemove
-      (function(){
-        var hero = document.querySelector('.hero'); var right = document.querySelector('.hero-right'); if(!hero||!right||prefersReduced) return;
-        hero.addEventListener('mousemove', function(e){ var r = hero.getBoundingClientRect(); var x = (e.clientX - r.left)/r.width - 0.5; var y = (e.clientY - r.top)/r.height - 0.5; right.style.transform = 'translate3d(' + (x * -12) + 'px,' + (y * -6) + 'px,0)'; });
-        hero.addEventListener('mouseleave', function(){ right.style.transform = ''; });
-      })();
-
-    })();
+    // Wire up dock CLI button
+    document.getElementById('dock-term-btn')?.addEventListener('click', () => {
+      document.getElementById('nav-terminal-btn')?.click();
+    });
   </script>
 </body>
 </html>
